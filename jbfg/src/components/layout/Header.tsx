@@ -1,10 +1,8 @@
-import styles from 'main/style.module.css';
-import {images} from 'constants/images';
-import {Link} from 'react-router-dom';
-import {texts} from 'main/texts';
-import {useState, useRef} from 'react';
+"use client";
 
-const txt = texts.header;
+import styles from 'styles/header.module.css';
+import {useRef, useState} from 'react';
+import {text} from 'services/headerService';
 
 export function Header() {
     const headerRef = useRef<HTMLElement>(null);
@@ -20,12 +18,12 @@ export function Header() {
     return (
         <header className={styles.header} ref={headerRef}>
             <div>
-                <Link to="/" className={styles.logo}>
-                    <img src={isMenu ? images.logo_black : images.logo}></img>
-                </Link>
+                <a href="#" className={styles.logo}>
+                    <img src={!isMenu ? "/icons/logo.svg" : "/icons/logo_hover.svg"}></img>
+                </a>
                 <nav>
                     <ul>
-                        {Object.values(txt).map((item, index) => (
+                        {Object.values(text).map((item, index) => (
                             <li key={item.title + index} onMouseEnter={menuMouseIsEnter(true)} onMouseLeave={menuMouseIsEnter(false)}>
                                 <a href="#">{item.title}</a>
                                 <div>

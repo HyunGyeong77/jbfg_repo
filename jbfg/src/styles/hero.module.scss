@@ -1,0 +1,320 @@
+@use 'mixins' as *;
+@use 'variables' as *;
+@use 'levels' as *;
+
+.section {
+    height:980px;
+
+    & > div:first-child {
+        height:100%;
+        
+        & > video {
+            object-fit:cover;
+            height:100%;
+        }
+    }
+
+    & > div:last-child {
+        position:absolute;
+        top:110px;
+        left:63px;
+        display:flex;
+        width:90%;
+        height:770px;
+        background:rgba(0, 0, 0, 0.3);
+
+        & > div {
+            @include flexSort(space-between, null);
+            width:1500px;
+            margin-inline:auto;
+            background:red;
+
+            & > .left {
+                position:fixed;
+                padding-top:8.3%;
+                
+                & > h1 {
+                    font-size:90px;
+                    line-height:100px;
+                    color:$white;
+                }
+            }
+
+            & > .right {
+                margin-left:auto;
+                transform:translateX(60px);
+                display:flex;
+
+                & > div > div {
+                    border-radius:45px;
+                    padding:20px 23px 15px;
+                    margin-bottom:15px;
+
+                    & > h2 {
+                        font-weight:bold;
+                        font-size:19px;
+                        text-indent:5px;
+
+                        &::before {
+                            content:"";
+                            display:inline-block;
+                            width:12px;
+                            height:12px;
+                            background:$white;
+                            border-radius:50%;
+                            margin-right:5px;
+                        }
+                    }
+                }
+
+                & > div:first-child {
+                    
+                    & > .creditRating {     //신용등급
+                        background:rgba(0, 19, 74, 0.48);
+                        font-weight:bold;
+                        color:$white;
+
+                        & > nav {
+                            & > ul {
+                                display:flex;
+                                padding-block:18px;
+
+                                & > li {
+                                    @include flexSort(null, center);
+                                    flex-direction:column;
+                                    margin-top:5px;
+                                    padding-inline:12px;
+                                    width:110px;
+
+                                    & > img {
+                                        border-radius:50%;
+                                        background:rgba(255, 255, 255, 0.2);
+                                        border:1px solid rgba(255, 255, 255, 0.3); 
+                                    }
+
+                                    & > p {
+                                        margin-top:13px;
+                                        font-size:16px;
+                                        letter-spacing:-1px;
+                                        text-align:center;
+                                        white-space:nowrap;
+                                    }
+                                }
+                            }
+                        }
+                    }
+
+                    & > .ir {
+                        background:rgba(0, 19, 74, 0.48);
+                        font-weight:bold;
+                        height:300px;
+
+                        & > h2,
+                        & > nav > ul > li > a > p:first-child {
+                            color:$white;
+                        }
+
+                        & > h2 {
+                            padding-bottom:10px;
+                        }
+
+                        & > nav > ul {
+                            
+                            & > li {
+                                margin-left:5px;
+                                margin-top:15px;
+                                padding-bottom:10px;
+                                border-bottom:1px solid rgba(255, 255, 255, 0.3);
+
+                                &:last-child {
+                                    border-bottom:none;
+                                }
+
+                                & > a {
+                                    & > p {
+                                        font-size:17px;
+                                        line-height:25px;
+                                    }
+        
+                                    & > p:last-child {
+                                        font-size:15px;
+                                        color:rgba(255, 255, 255, 0.6);
+                                    }
+                                }
+                            }
+                        }
+                    }
+
+                    & > .report {
+                        background:rgba(22, 75, 232, 0.8);
+                        color:$white;
+
+                        & > div {
+                            padding-bottom:5px;
+                            border-bottom:1px solid rgba(255, 255, 255, 0.2);
+
+                            & > p {
+                                font-weight:bold;
+                                font-size:25px;
+                                line-height:9px;
+                            }
+                        }
+
+                        & > a {     
+                            
+                            & > img {
+                                margin-top:10px;
+                                margin-bottom:15px;
+                                @include arrowStyle;
+                            }
+                        }
+                    }
+                }
+
+                & > div:last-child {
+                    margin-left:15px;
+                    width:270px;
+                    
+                    & > .performance {
+                        background:rgba(25, 228, 238, 0.4);
+
+                        & > h2,
+                        & > div > p,
+                        & > nav > ul > li > a {
+                            color:$white;
+                        }
+
+                        & > h2 {
+                            padding-bottom:10px;
+                        }
+
+                        & > div {
+                            padding-bottom:3px;
+                            border-bottom:1px solid rgba(255, 255, 255, 0.2);
+
+                            & > p {
+                                font-weight:bold;
+                                line-height:8px;
+
+                                &:first-child {
+                                    font-size:25px;
+                                }
+
+                                &:last-child {
+                                    font-size:24px;
+                                }
+                            }
+                        }
+
+                        & > nav > ul {
+                            margin-bottom:10px;
+
+                            & > li {
+                                & > a {
+                                    @include flexSort(space-between, center);
+                                    font-weight:600;
+
+                                    & > p {
+                                        font-size:18px;
+                                    }
+
+                                    & > img {
+                                        @include arrowStyle;
+                                    }
+                                }
+                            }
+                        }
+                    }
+
+                    & > .info {
+                        background: rgba(255, 255, 255, 0.75);
+                        color:#222222;
+
+                        & > h2 {
+
+                            &::before {
+                                background:#0A31A8;
+                            }
+                        }
+
+                        & > div > p,
+                        & > nav > ul > li > p {
+                            font-size:13px;
+                            font-weight:bold;
+                        }
+
+                        & > div {
+                            padding-bottom:30px;
+                            border-bottom:1px solid rgba(0, 0, 0, 0.1);
+
+                            & > div:nth-child(2),
+                            & > div:last-child {
+                                text-align:right;
+                            }
+
+                            & > div:nth-child(2) {
+                                & > small,
+                                & > strong {
+                                    color:#222222;
+                                    font-weight:bold;
+                                }
+
+                                & > small {
+                                    display:inline-block;
+                                    font-size:20px;
+                                    margin-left:3px;
+                                    transform:translateY(-4px);
+                                }
+
+                                & > strong {
+                                    font-size:45px;
+                                }
+                            }
+
+                            & > div:last-child {
+                                margin-right:2px;
+
+                                & > span {
+                                    font-size:13px;
+                                    
+                                }
+
+                                & > span:first-child {
+                                    color:black;
+                                    margin-right:5px;
+                                }
+                            }
+                        }
+
+                        & > nav {
+                            margin-top:23px;
+                            
+                            & > ul {
+                                & > li {
+                                    display:flex;
+                                    justify-content:space-between;
+                                    text-align:right;
+
+                                    & > div {
+
+                                        & > p:first-child {
+                                            font-size:15px;
+                                            line-height:0px;
+                                            font-weight:bold;
+                                        }
+
+                                        & > p:last-child {
+                                            font-size:14px;
+                                            line-height:20px;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+    }
+}

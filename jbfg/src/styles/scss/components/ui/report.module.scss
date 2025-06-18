@@ -1,0 +1,49 @@
+@use '../../variables' as *;
+
+.report {   // 통합연차보고서
+    position:relative;
+    background:rgba(22, 75, 232, 1);
+    color:$white;
+    overflow:hidden;
+
+    & > div:first-child {
+        position:absolute;
+        top:0px;
+        right:0;
+        width:100%;
+        height:100%;
+        background:rgb(1, 48, 189);
+
+        & > img {
+            width:100%;
+            height:100%;
+            opacity:0.2;
+        }
+    }
+
+    & > h2,
+    & > div:nth-child(3) {
+        position:relative;
+    }
+
+    & > div:nth-child(3) {
+        padding-top:20px;
+        padding-bottom:15px;
+        border-bottom:1px solid rgba(255, 255, 255, 0.2);
+
+        & > p {
+            font-weight:bold;
+            font-size:24px;
+            text-indent:5px;
+            line-height:33px;
+        }
+    }
+
+    & > a {     
+        
+        & > img {
+            margin-top:10px;
+            margin-bottom:4px;
+        }
+    }
+}

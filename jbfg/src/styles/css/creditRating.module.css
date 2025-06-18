@@ -1,0 +1,30 @@
+.creditRating {
+  border-radius: 45px;
+  padding: 23px 23px 15px;
+  background: rgba(0, 19, 74, 0.48);
+  font-weight: bold;
+  color: white;
+}
+.creditRating > nav > ul {
+  display: flex;
+  padding-block: 18px;
+}
+.creditRating > nav > ul > li {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 5px;
+  padding-inline: 12px;
+  width: 110px;
+}
+.creditRating > nav > ul > li > img {
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+.creditRating > nav > ul > li > p {
+  margin-top: 13px;
+  font-size: 15px;
+  text-align: center;
+  white-space: nowrap;
+}

@@ -1,0 +1,70 @@
+.info {
+  background: rgba(255, 255, 255, 0.75);
+  color: #222222;
+}
+.info > h2 {
+  padding-bottom: 24px;
+}
+.info > h2::before {
+  background: #0A31A8 !important;
+}
+.info > div > p, .info > nav > ul > li > p {
+  font-size: 13px;
+  text-indent: 5px;
+  font-weight: bold;
+}
+.info > div {
+  padding-bottom: 28px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+.info > div > div:nth-child(2), .info > div > div:last-child {
+  text-align: right;
+}
+.info > div > div:nth-child(2) {
+  margin-top: 8px;
+}
+.info > div > div:nth-child(2) > small, .info > div > div:nth-child(2) > strong {
+  color: #222222;
+  font-weight: bold;
+}
+.info > div > div:nth-child(2) > small {
+  display: inline-block;
+  font-size: 20px;
+  margin-left: 3px;
+  transform: translateY(-4px);
+}
+.info > div > div:nth-child(2) > strong {
+  font-size: 45px;
+}
+.info > div > div:last-child {
+  margin-right: 2px;
+}
+.info > div > div:last-child > span {
+  font-size: 13px;
+}
+.info > div > div:last-child > span:first-child {
+  color: black;
+  margin-right: 5px;
+}
+.info > nav {
+  margin-top: 28px;
+  padding-bottom: 7px;
+}
+.info > nav > ul > li {
+  display: flex;
+  justify-content: space-between;
+  text-align: right;
+  margin-bottom: 10px;
+}
+.info > nav > ul > li > p {
+  letter-spacing: 1px;
+}
+.info > nav > ul > li > div > p:first-child {
+  font-size: 15px;
+  font-weight: bold;
+  line-height: 12px;
+}
+.info > nav > ul > li > div > p:last-child {
+  font-size: 14px;
+  line-height: 35px;
+}

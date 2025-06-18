@@ -1,0 +1,43 @@
+.performance {
+  background: rgba(25, 228, 238, 0.4);
+}
+.performance > h2, .performance > div > p, .performance > nav > ul > li > a {
+  color: white;
+}
+.performance > h2 {
+  padding-bottom: 22px;
+}
+.performance > div {
+  padding-bottom: 10px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+.performance > div > p {
+  font-weight: bold;
+  text-indent: 5px;
+  line-height: 35px;
+}
+.performance > div > p:first-child {
+  font-size: 24px;
+}
+.performance > div > p:last-child {
+  font-size: 23px;
+}
+.performance > nav > ul {
+  padding-top: 10px;
+  margin-bottom: 25px;
+}
+.performance > nav > ul > li {
+  margin-bottom: 10px;
+  width: 225px;
+  white-space: nowrap;
+}
+.performance > nav > ul > li > a {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: 600;
+  text-indent: 5px;
+}
+.performance > nav > ul > li > a > p {
+  font-size: 18px;
+}

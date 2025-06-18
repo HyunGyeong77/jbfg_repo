@@ -1,0 +1,28 @@
+.ir {
+  background: rgba(0, 19, 74, 0.48);
+  font-weight: bold;
+  height: 300px;
+}
+.ir > h2, .ir > nav > ul > li > a > p:first-child {
+  color: white;
+}
+.ir > h2 {
+  padding-bottom: 5px;
+}
+.ir > nav > ul > li {
+  margin-left: 5px;
+  margin-top: 15px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+}
+.ir > nav > ul > li:last-child {
+  border-bottom: none;
+}
+.ir > nav > ul > li > a > p {
+  font-size: 18px;
+  line-height: 25px;
+}
+.ir > nav > ul > li > a > p:last-child {
+  font-size: 16px;
+  color: rgba(255, 255, 255, 0.6);
+}

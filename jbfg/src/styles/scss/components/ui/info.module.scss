@@ -1,0 +1,95 @@
+.info {   // 주가정보
+    background: rgba(255, 255, 255, 0.75);
+    color:#222222;
+
+    & > h2 {
+        padding-bottom:24px;
+
+        &::before {
+            background:#0A31A8 !important;
+        }
+    }
+
+    & > div > p,
+    & > nav > ul > li > p {
+        font-size:13px;
+        text-indent:5px;
+        font-weight:bold;
+    }
+
+    & > div {
+        padding-bottom:28px;
+        border-bottom:1px solid rgba(0, 0, 0, 0.1);
+
+        & > div:nth-child(2),
+        & > div:last-child {
+            text-align:right;
+        }
+
+        & > div:nth-child(2) {
+            margin-top:8px;
+
+            & > small,
+            & > strong {
+                color:#222222;
+                font-weight:bold;
+            }
+
+            & > small {
+                display:inline-block;
+                font-size:20px;
+                margin-left:3px;
+                transform:translateY(-4px);
+            }
+
+            & > strong {
+                font-size:45px;
+            }
+        }
+
+        & > div:last-child {
+            margin-right:2px;
+
+            & > span {
+                font-size:13px;
+                
+            }
+
+            & > span:first-child {
+                color:black;
+                margin-right:5px;
+            }
+        }
+    }
+
+    & > nav {
+        margin-top:28px;
+        padding-bottom:7px;
+        
+        & > ul {
+            & > li {
+                display:flex;
+                justify-content:space-between;
+                text-align:right;
+                margin-bottom:10px;
+
+                & > p {
+                    letter-spacing:1px;
+                }
+
+                & > div {
+                    & > p:first-child {
+                        font-size:15px;
+                        font-weight:bold;
+                        line-height:12px;
+                    }
+
+                    & > p:last-child {
+                        font-size:14px;
+                        line-height:35px;
+                    }
+                }
+            }
+        }
+    }
+}

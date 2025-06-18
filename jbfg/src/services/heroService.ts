@@ -27,7 +27,7 @@ export const text = {
             ref: {
                 company: "JB금융지주",
                 price: ["20,000", "원"],
-                result: ["어제보다", "▼900(-4.31%)"]
+                result: ["어제보다", "▼900 (-4.31%)"]
             },
             other: {
                 kospi: {

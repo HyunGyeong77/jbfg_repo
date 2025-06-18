@@ -1,0 +1,37 @@
+@use '../../mixins' as *;
+@use '../../variables' as *;
+
+.creditRating {     //신용등급
+    @include containerStyle;
+    background:rgba(0, 19, 74, 0.48);
+    font-weight:bold;
+    color:$white;
+
+    & > nav {
+        & > ul {
+            display:flex;
+            padding-block:18px;
+
+            & > li {
+                @include flexSort(null, center);
+                flex-direction:column;
+                margin-top:5px;
+                padding-inline:12px;
+                width:110px;
+
+                & > img {
+                    border-radius:50%;
+                    background:rgba(255, 255, 255, 0.2);
+                    border:1px solid rgba(255, 255, 255, 0.3); 
+                }
+
+                & > p {
+                    margin-top:13px;
+                    font-size:15px;
+                    text-align:center;
+                    white-space:nowrap;
+                }
+            }
+        }
+    }
+}

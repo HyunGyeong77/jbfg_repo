@@ -1,0 +1,56 @@
+@use '../../variables' as *;
+@use '../../mixins' as *;
+
+.performance {  // 경영실적
+    background:rgba(25, 228, 238, 0.4);
+
+    & > h2,
+    & > div > p,
+    & > nav > ul > li > a {
+        color:$white;
+    }
+
+    & > h2 {
+        padding-bottom:22px;
+    }
+
+    & > div {
+        padding-bottom:10px;
+        border-bottom:1px solid rgba(255, 255, 255, 0.2);
+
+        & > p {
+            font-weight:bold;
+            text-indent:5px;
+            line-height:35px;
+
+            &:first-child {
+                font-size:24px;
+            }
+
+            &:last-child {
+                font-size:23px;
+            }
+        }
+    }
+
+    & > nav > ul {
+        padding-top:10px;
+        margin-bottom:25px;
+
+        & > li {
+            margin-bottom:10px;
+            width:225px;
+            white-space:nowrap;
+            
+            & > a {
+                @include flexSort(space-between, center);
+                font-weight:600;
+                text-indent:5px;
+
+                & > p {
+                    font-size:18px;
+                }
+            }
+        }
+    }
+}

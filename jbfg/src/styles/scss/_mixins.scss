@@ -1,0 +1,12 @@
+@use 'variables' as *;
+
+@mixin flexSort($justify, $align) {
+    display:flex;
+    justify-content:$justify;
+    align-items:$align;
+}
+
+@mixin containerStyle {
+    border-radius:45px;
+    padding:23px 23px 15px;
+}

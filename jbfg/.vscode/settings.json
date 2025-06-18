@@ -1,0 +1,10 @@
+{
+    "liveSassCompile.settings.formats": [
+        {
+            "format": "expanded",
+            "extensionName": ".css",
+            "savePath": "/src/styles/css"  // CSS 파일이 저장될 경로
+        }
+    ],
+
+}

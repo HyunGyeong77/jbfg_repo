@@ -1,0 +1,9 @@
+.clickBtnIcon {
+  background: rgba(255, 255, 255, 0.3019607843);
+  border-radius: 50%;
+  transition: background-color 0.3s;
+  scale: 0.9;
+}
+.clickBtnIcon.active {
+  background: white;
+}

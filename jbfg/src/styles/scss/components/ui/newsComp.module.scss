@@ -1,0 +1,37 @@
+@use '../../variables' as *;
+
+.newsComp {
+
+    &:hover > a > div > img {
+        scale:1.2;
+    }
+
+    & > a {
+        display:flex;
+        flex-direction:column;
+        gap:1.3rem;
+        font-weight:bold;
+
+        & > div {
+            overflow:hidden;
+            border-radius:25px;
+            
+            & > img {
+                transition:scale 0.7s;
+            }
+        }
+
+        & > p:nth-child(2) {
+            word-break:keep-all;
+            text-wrap: pretty;
+            font-size:1.2rem;
+            line-height:1.5;
+            color:$text-color;
+        }
+
+        & > p:last-child {
+            font-size:0.9rem;
+            color:$text_lightColor;
+        }
+    }
+}

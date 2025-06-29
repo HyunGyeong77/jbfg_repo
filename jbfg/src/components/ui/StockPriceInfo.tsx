@@ -33,7 +33,7 @@ function StockPriceInfo() {
                     <strong>{text.info.content.ref.price[0]}</strong>
                     <small>{text.info.content.ref.price[1]}</small>
                 </div>
-                <div style={{color: infoColor[0] ? "red" : "blue"}}>
+                <div style={{color: infoColor[0] ? "#ff0000" : "#1850FF"}}>
                     <span>{text.info.content.ref.result[0]}</span>
                     <span>{text.info.content.ref.result[1]}</span>
                 </div>
@@ -45,7 +45,7 @@ function StockPriceInfo() {
                             <p>{item.company}</p>
                             <div>
                                 <p>{item.price}</p>
-                                <p style={{color: infoColor[index + 1] ? "red" : "blue"}}>{item.result}</p>
+                                <p style={{color: infoColor[index + 1] ? "#ff0000" : "#1850FF"}}>{item.result}</p>
                             </div>
                         </li>
                     </ul>

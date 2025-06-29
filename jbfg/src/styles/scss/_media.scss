@@ -24,8 +24,20 @@
     }
 }
 
+@mixin media-xmlg {
+    @media (max-width: $breakpoint-xmlg) {
+        @content;
+    }
+}
+
 @mixin media-xxlg {
     @media (max-width: $breakpoint-xxlg) {
+        @content;
+    }
+}
+
+@mixin media-min-lg {
+    @media (min-width: 1025px) {
         @content;
     }
 }

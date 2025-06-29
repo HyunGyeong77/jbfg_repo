@@ -10,7 +10,7 @@ function CreditRating() {
                 <ul>
                     {Object.values(text.creditRating.evaluation).map((item, index) => (
                         <li key={item[index] + index}>
-                            <Image src="/images/aa.png" alt="aa" width={83} height={83} />
+                            <Image src="/images/aa.png" alt="aa" width={83} height={83} priority={true} />
                             <p>{item}</p>
                         </li>
                     ))}

@@ -8,8 +8,8 @@
     position:fixed;
     width:100%;
     height:6.5rem;
-    z-index:$z-index-dropdown;
-    transition:background-color 0.3s;
+    z-index:$z-index-forward;
+    transition:background-color 0.3s, transform 0.3s;
 
     &::after {
         content:"";
@@ -34,7 +34,14 @@
             @include flexSort(space-between, center);
             width:100%;
             height:100%;
-            padding-inline:3.7rem;
+            padding-inline:$layout_padding;
+
+            & > a {
+                & > img {
+                    width:9rem;
+                    height:auto;
+                } 
+            }
             
             & > nav:nth-child(2) {
                 display:block;
@@ -47,7 +54,7 @@
     
                     & > li {
                         position:relative;
-                        padding:0 0.6rem;
+                        padding:0 0.5rem;
                         
                         & > a {
                             @include flexSort(center, center);
@@ -106,6 +113,7 @@
             & > nav:nth-child(3) {
                 & > ul {
                     @include flexSort(space-between, center);
+                    gap:1.7rem;
 
                     & > li {
                         position:relative;
@@ -144,14 +152,12 @@
                         }
     
                         &:nth-child(2) {
-                            @include flexSort(space-between, center);
-                            width:40%;
-                            margin-left:30px;
-                            margin-right:20px;
+                            @include flexSort(null, center);
+                            gap:1.2rem;
                             
                             & > a {
                                 font-weight:600;
-                                font-size:0.7rem;
+                                font-size:0.8rem;
     
                                 &:last-child {
                                     color: rgba(255, 255, 255, 0.3);
@@ -170,29 +176,31 @@
                         }
     
                         &:last-child {
-                            overflow:hidden;
-                            text-indent:100%;
+                            position:relative;
+                            width:1.4rem;
+                            height:0.52rem;
     
                             & > a {
                                 display:block;
+                                height:100%;
+                                
                                 &::before,
                                 &::after {
                                     content:"";
                                     position:absolute;
-                                    top:0;
                                     right:0;
                                     display:block;
-                                    width:20px;
+                                    width:100%;
                                     height:2px;
                                     background:$white;
                                 }
     
                                 &::before {
-                                    top:5.5px;
+                                    top:0;
                                 }
     
                                 &::after {
-                                    top:12.5px;
+                                    bottom:0;
                                 }
                             }
                         }
@@ -202,66 +210,131 @@
         }
     }
 
-    &.active {
+    & > .blur {
+        display:none;
+    }
+}
+
+.header.active {
+    background-color:$white;
+
+    &::before {
+        content:"";
+        position:absolute;
+        bottom:0;
+        display:block;
+        width:100%;
+        height:1px;
+        background:rgba(0, 0, 0, 0.1);
+    }
+
+    &::after {
+        max-height:500px;
         background-color:$white;
+    }
 
-        &::before {
-            content:"";
-            position:absolute;
-            bottom:0;
-            display:block;
-            width:100%;
-            height:1px;
-            background:rgba(0, 0, 0, 0.1);
-        }
-
-        &::after {
-            max-height:500px;
-            background-color:$white;
-        }
-
-        & > div > div > nav:nth-child(2) > ul > li {
-            & > a {
-                color:$text_color;
-            }
-
-            & > div {
-                max-height:500px;
-            }
-        }
-
-        & > div > div > nav:nth-child(3) > ul {
-            & > li {
-                &:first-child > a {
+    & > div {
+        & > div {
+            & > nav:nth-child(2) > ul > li {
+                & > a {
                     color:$text_color;
-
-                    &::after {
-                        background:$text_color;
-                    }  
                 }
-
-                &:nth-child(2) {
-                    &::before {
-                        background:rgba(0, 0, 0, 0.3);
-                    }
-
-                    & > a:first-child {
-                        color:#0A31A8;
-                    }
-
-                    & > a:last-child {
-                        color:rgb(196, 196, 196);
-                    }
+        
+                & > div {
+                    max-height:500px;
                 }
+            }
 
-                &:nth-child(3) > a {
-                    &::after,
-                    &::before {
-                        background:$text_color;
+            & > nav:nth-child(3) > ul {
+                & > li {
+                    &:first-child > a {
+                        color:$text_color;
+        
+                        &::after {
+                            background:$text_color;
+                        }  
+                    }
+        
+                    &:nth-child(2) {
+                        &::before {
+                            background:rgba(0, 0, 0, 0.3);
+                        }
+        
+                        & > a:first-child {
+                            color:#0A31A8;
+                        }
+        
+                        & > a:last-child {
+                            color:rgb(196, 196, 196);
+                        }
+                    }
+        
+                    &:nth-child(3) > a {
+                        &::after,
+                        &::before {
+                            background:$text_color;
+                        }
                     }
                 }
             }
+        } 
+    }
+}
+
+.header.white {
+    background:$white;
+
+    & > div > div > nav:nth-child(2) > ul > li {
+        & > a {
+            color:$text_color;
         }
+    }
+
+    & > div > div > nav:nth-child(3) > ul {
+        & > li {
+            &:first-child > a {
+                color:$text_color;
+
+                &::after {
+                    background:$text_color;
+                }  
+            }
+
+            &:nth-child(2) {
+                &::before {
+                    background:rgba(0, 0, 0, 0.3);
+                }
+
+                & > a:first-child {
+                    color:#0A31A8;
+                }
+
+                & > a:last-child {
+                    color:rgb(196, 196, 196);
+                }
+            }
+
+            &:nth-child(3) > a {
+                &::after,
+                &::before {
+                    background:$text_color;
+                }
+            }
+        }
+    }
+}
+
+.header.none {
+    transform:translateY(-100%);
+}
+
+.header.open {
+    transform:translateY(0%);
+}
+
+@media (max-width:1900px) {
+    .header > div > div > nav:nth-child(2) > ul > li > div > ul > li > a {
+        font-size:0.8rem;
     }
 }
 
@@ -271,12 +344,54 @@
     }
 }
 
+@include media-lg {
+    .header {
+        height: clamp(5.8rem, 10.4vw, 6.5rem);
+
+        & > div > div {
+            padding-inline:clamp(1rem, 6.3vw, $layout_padding);
+    
+            & > a > img {
+                width:clamp(8rem, 15vw, 9rem);
+            }
+    
+            & > nav:last-child > ul {
+    
+                & > li:first-child > a {
+                    font-size:clamp(0.7rem, 1.4vw, 0.85rem);
+                    padding-inline:clamp(0.7rem, 1.4vw, 0.8rem);
+                    line-height:clamp(1.6rem, 2.7vw, 1.7rem);
+                }
+    
+                & > li:nth-child(2) > a {
+                    font-size:clamp(0.7rem, 1.3vw, 0.8rem);
+                }
+    
+                & > li:last-child {
+                    width:clamp(1.2rem, 2.3vw, 1.4rem);
+                    height:clamp(0.5rem, 0.9vw, 0.52rem);
+                }
+            }
+        }
+    }
+}
+
 @include media-md {
     .header > div > div > nav:last-child > ul {
-        width:110px;
-
         & > li:nth-child(2) {
             display:none;
         }
     }
+}
+
+@media(max-width: 680px) {
+    .header {
+        height: 4rem;
+
+        & > div > div {
+            & > nav:last-child > ul {
+                gap:1rem;
+            }
+        }
+    } 
 }

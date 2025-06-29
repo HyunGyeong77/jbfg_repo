@@ -1,4 +1,5 @@
 @use 'variables' as *;
+@use 'levels' as *;
 
 @mixin flexSort($justify, $align) {
     display:flex;
@@ -7,6 +8,24 @@
 }
 
 @mixin containerStyle {
-    border-radius:45px;
-    padding:23px 23px 15px;
+    position:relative;
+    border-radius:clamp(2rem, 2.2vw, 5.5rem);
+    padding:1.5rem;
+    backdrop-filter:blur(10px);
+    opacity:0;
+    visibility:hidden;
+
+    & > h2 {
+        font-size:1.1rem;
+
+        &::before {
+            content:"";
+            display:inline-block;
+            width:12px;
+            height:12px;
+            border-radius:50%;
+            background:$white;
+            margin-right:5px;
+        }
+    }
 }

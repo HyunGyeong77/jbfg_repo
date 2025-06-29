@@ -1,0 +1,45 @@
+@use '../../variables' as *;
+
+.globalComp {
+    padding:clamp(1.8rem, 1.7vw, 4rem) clamp(2.1rem, 2vw, 4.8rem);
+    border-radius:clamp(26px, 4.2vw, 2.4rem);
+    background:$cobalt;
+    font-weight:bold;
+
+    & > div:first-child {
+        border-bottom:1px solid rgba(255, 255, 255, 0.2);
+
+        & > p {
+            font-size:1.2rem;
+            padding-top:0.2rem;
+            padding-bottom:1.2rem;
+            letter-spacing:1px;
+        }
+    }
+
+    & > div:last-child {
+        margin-top:1rem;
+
+        & > p {
+            font-size:0.9rem;
+        }
+
+        & > nav > ul > li {
+            padding-top:1rem;
+
+            & > p {
+                font-size:0.9rem;
+                & > span {
+                    display:inline-flex;
+                    justify-content:center;
+                    align-items:center;
+                    width:2rem;
+                    height:2rem;
+                    border-radius:50%;
+                    background:rgba(255, 255, 255, 0.3);
+                    margin-right:0.5rem;
+                }
+            }
+        }
+    }
+}

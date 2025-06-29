@@ -1,0 +1,27 @@
+.newsComp:hover > a > div > img {
+  scale: 1.2;
+}
+.newsComp > a {
+  display: flex;
+  flex-direction: column;
+  gap: 1.3rem;
+  font-weight: bold;
+}
+.newsComp > a > div {
+  overflow: hidden;
+  border-radius: 25px;
+}
+.newsComp > a > div > img {
+  transition: scale 0.7s;
+}
+.newsComp > a > p:nth-child(2) {
+  word-break: keep-all;
+  text-wrap: pretty;
+  font-size: 1.2rem;
+  line-height: 1.5;
+  color: #333333;
+}
+.newsComp > a > p:last-child {
+  font-size: 0.9rem;
+  color: #666666;
+}

@@ -14,11 +14,11 @@ export const text = {
     },
     report: {
         title: "통합연차보고서",
-        content: ["2023 JB금융그룹", "통합연차보고서"]
+        content: "2023 JB금융그룹 통합연차보고서"
     },
     performance: {
         title: "경영실적",
-        content: ["2025년 1분기", "경영실적 발표"],
+        content: "2025년 1분기 경영실적 발표",
         data: ["실적자료", "재무제표", "Factbook", "Conference Call"]
     },
     info: {

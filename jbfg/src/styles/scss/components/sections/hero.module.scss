@@ -1,15 +1,28 @@
 @use '../../mixins' as *;
 @use '../../variables' as *;
 @use '../../levels' as *;
+@use '../../media' as *;
+@use '../../animations' as *;
+
+.bg {
+    position:absolute;
+    top:0;
+    left:0;
+    width:100vw;
+    height:100vh;
+    background:$navy;
+}
 
 .section {
     position:relative;
     overflow:hidden;
+    height:100vh;
+    z-index:2;
 
-    & > div:first-child {
+    & > .video {
         position:relative;
-        height:100vh;
-        
+        height:100lvh;
+
         & > video {
             position:absolute;
             top:0;
@@ -19,88 +32,261 @@
         }
     }
 
-    & > div:last-child {
+    & > .content {
         position:absolute;
         display:flex;
         top:0;
+        left:0;
         width:100%;
         height:100%;
-        padding-inline:4rem;
+        padding-inline:$layout_padding;
 
-        & > div {
-            display:grid;
-            grid-template-columns:1fr 50%;
-            gap:3.5rem;
-            align-items:center;
-            padding-top:2.3rem;
-            width:1550px;
+        & > .inner {
+            @include flexSort(null, center);
             margin-inline:auto;
-           
-            & > .left,
-            & > .right {
-                height:773px;
-            }
+            width:90.5rem;
+            
+            & > div {
+                display:grid;
+                grid-template-columns:1fr 50%;
+                width:100%;
+                height:100%;
+                padding-block:6.7rem;
+    
+                & > .left {
+                    @include flexSort(center, null);
+                    flex-direction:column;
+                    transition:padding 0.2s;
 
-            & > .left {
-                @include flexSort(center, null);
-                flex-direction:column;
-                padding-bottom:40px;
-                
-                & > div:first-child {
-                    font-size:3.5rem;
-                    margin-bottom:80px;
-
-                    & > h1 {
-                        color:$white;
+                    &.move {
+                        padding-top:3rem;
                     }
-                }
+                    
+                    & > div:first-child {
+                        margin-bottom:4rem;
 
-                & > div:last-child {
-                    display:flex;
+                        & > div {
+                            font-size:3.6rem;
+                            line-height:1.1;
+                            letter-spacing:-1px;
+                            overflow:hidden;
 
-                    & > div {
-                        width:295px;
-                        height:8px;
-                        background:$white;
-                        border-radius:50px;
+                            &:first-child > h1 {animation-delay:0.2s;}
+                            &:nth-child(2) > h1 {animation-delay:0.5s;}
+                            &:last-child > h1 {animation-delay:0.8s;}
+
+                            & > h1 {
+                                color:$white;
+                                @include fade-in(100%);
+                                transform:translateY(100%);
+                            }
+                        }
                     }
+    
+                    & > div:last-child {
+                        position:relative;
+                        display:flex;
+                        align-items:center;
+                        margin-bottom:2rem;
+                        @include fade-in2(200%);
+                        opacity:0;
+                        visibility:hidden;
+                        animation-delay:0.5s;
+    
+                        & > div {
+                            position:relative;
+                            width:17.3rem;
+                            height:9px;
+                            border-radius:50px;
+                            background:rgba(255, 255, 255, 0.2);
+                            overflow:hidden;
 
-                    & > button {
-                        margin-left:10px;
-                    }
-                }
-            }
+                            & > div {
+                                position:absolute;
+                                display:block;
+                                background:$white;
+                                width:0;
 
-            & > .right {
-                display:flex;
-                justify-content:right;
-
-                & > div > div {
-                    @include containerStyle;
-                    margin-bottom:15px;
-
-                    & > h2 {
-                        font-weight:bold;
-                        font-size:20px;
-                        text-indent:5px;
-                
-                        &::before {
-                            content:"";
-                            display:inline-block;
-                            width:12px;
-                            height:12px;
-                            background:$white;
+                                &.refresh {
+                                    transition:none;
+                                }
+    
+                                &,
+                                &::after {
+                                    height:9px;
+                                }
+                            }
+                        }
+    
+                        & > button {
+                            @include flexSort(left, center);
+                            margin-left:1rem;
+                            border:none;
+                            background:rgba(255, 255, 255, 0.2);
                             border-radius:50%;
-                            margin-right:5px;
+                            cursor:pointer;
+
+                            &.active {
+                                background:rgba(255, 255, 255, 0.4);
+                            }
+
+                            &,
+                            & > img {
+                                width:2rem;
+                                height:2rem;
+                            }
                         }
                     }
                 }
+    
+                & > .right {
+                    @include flexSort(null, center);
+    
+                    & > div {
+                        display:grid;
+                        grid-template-columns:1.4fr 1fr;
+                        gap:0.8rem;
+                        margin-left:auto;
 
-                & > div:last-child {
-                    margin-left:15px;
-                    width:270px;
+                        & > div {
+                            display:grid;
+                            gap:0.8rem;
+                        }
+                    }
                 }
             }
         }
     }
+}
+
+@media (min-width: 1910px) {
+    .bg,
+    .section {
+        height:103vh;
+    }
+
+    .section {
+        & > .video {
+            height:103vh;
+        }
+    }
+}
+
+@include media-min-lg {
+    .section > .content > .inner > div > .right > div {
+        max-width:38.5rem;
+    }
+}
+
+@include media-lg {
+    .bg,
+    .section {
+        height:1307.45px;
+    }
+
+    .section {
+        overflow:hidden;
+
+        & > .video {
+            height:103vh;
+        }
+
+        & > .content {
+            padding-inline:clamp(1rem, 6vw, $layout_padding);
+            height:max-content;
+
+            & > .inner {   
+
+                & > div {
+                    display:flex;
+                    flex-direction: column;
+                    padding-block:clamp(6rem, 9vw, 7rem);
+            
+                    & > .left {
+                        display:flex;
+                        flex-direction:column-reverse;
+                        gap:3rem;
+                        justify-content:flex-start;
+    
+                        & > div:first-child {
+                            padding-bottom:0;
+    
+                            & > div {
+                                font-size:clamp(3.2rem, 6vw, 3.6rem)
+                            }
+                        }
+            
+                        & > div:last-child {
+                            margin-left:auto;
+                            margin-bottom:0;
+            
+                            & > div {
+                                display:none;
+                            }
+            
+                            & > button {
+                                &,
+                                & > img {
+                                    width:clamp(2.3rem, 4vw, 2.5rem);
+                                    height:clamp(2.3rem, 4vw, 2.5rem);
+                                }
+                            }
+                        }
+                    }
+            
+                    & > .right {
+                        align-items:flex-start;
+    
+                        & > div {
+                            width:100%;
+                            margin-left:unset;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media(max-width: 680px) {
+    .bg,
+    .section {
+        height:1814.91px;
+    }
+
+    .section {
+        & > .content  .inner {
+            & > div {
+                padding-block:5rem;
+                & > .left {
+                    gap:1.5rem;
+                    
+                    & > div:first-child {
+                        margin-bottom:2.8rem;
+    
+                        & > div > h1 {
+                            font-size:4rem;
+                        }
+                    }
+    
+                    & > div:last-child {
+                        & > button {
+                            &,
+                            & > img {
+                                width:clamp(2.1rem, 5.5vw, 2.3rem);
+                                height:clamp(2.1rem, 5.5vw, 2.3rem);
+                            }
+                        }
+                    }
+                }
+    
+                & > .right {
+                    & > div {
+                        display:flex;
+                        flex-direction:column;
+                    }
+                }
+            }
+        }
+    } 
 }

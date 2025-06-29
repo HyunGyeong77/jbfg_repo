@@ -1,0 +1,91 @@
+@use '../../variables' as *;
+
+.section {
+    padding-inline:$layout-padding;
+    background:#FCFCFC;
+
+    & > div {
+        width:90.5rem;
+        margin-inline:auto;
+        padding-top:9rem;
+        padding-bottom:6rem;
+
+        & > div {
+            display:grid;
+            grid-template-columns:1fr 56.4%;
+
+            & > .left {
+                display:flex;
+                flex-direction:column;
+                gap:1rem;
+                color:$text-color;
+                font-weight:bold;
+
+                & > h2 {
+                    font-family: 'SBAggroB';
+                    font-size:1.9rem;
+
+                    &::before {
+                        content:"";
+                        display:inline-block;
+                        width:1.4rem;
+                        height:1.4rem;
+                        border-radius:50%;
+                        background:$cobalt;
+                        margin-right:0.8rem;
+                        transform:translateY(6px);
+                    }
+                }
+
+                & > p {
+                    word-break:keep-all;
+                    font-size:3.6rem;
+                    line-height:1.4;
+                }
+            }
+
+            & > .right {
+                display:grid;
+                grid-template-columns:1fr 1fr;
+                gap:1rem;
+
+                & > div {
+                    display:grid;
+                    gap:4.5rem;
+                }
+
+                & > div:first-child {
+                    & > div:last-child {
+                        align-self:flex-end;
+                    }
+
+                    & > div > a > div {
+                        &,
+                        & > img {
+                            width:25rem;
+                            height:20rem;       
+                        }
+                    }
+                }
+
+                & > div:last-child {
+                    & > div:first-child > a > div {
+                        &,
+                        & > img {
+                            width:25rem;
+                            height:29rem;
+                        }
+                    }
+
+                    & > div:last-child > a > div {
+                        &,
+                        & > img {
+                            width:25rem;
+                            height:18.1rem;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

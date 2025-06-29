@@ -1,28 +1,68 @@
+@keyframes progressBar {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
 .ir {
+  position: relative;
+  border-radius: clamp(2rem, 2.2vw, 5.5rem);
+  padding: 1.5rem;
+  -webkit-backdrop-filter: blur(10px);
+          backdrop-filter: blur(10px);
+  opacity: 0;
+  visibility: hidden;
   background: rgba(0, 19, 74, 0.48);
   font-weight: bold;
-  height: 300px;
+  animation: fade-in2 1s ease-out forwards;
+  animation-delay: 0.7s;
+}
+.ir > h2 {
+  font-size: 1.1rem;
+}
+.ir > h2::before {
+  content: "";
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: white;
+  margin-right: 5px;
+}
+@keyframes fade-in2 {
+  from {
+    transform: translateY(30%);
+    visibility: hidden;
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    visibility: visible;
+    opacity: 1;
+  }
 }
 .ir > h2, .ir > nav > ul > li > a > p:first-child {
   color: white;
 }
-.ir > h2 {
-  padding-bottom: 5px;
+.ir > nav > ul {
+  margin-top: 0.7rem;
 }
 .ir > nav > ul > li {
-  margin-left: 5px;
-  margin-top: 15px;
-  padding-bottom: 10px;
+  padding-block: 13px;
+  margin-left: 3px;
   border-bottom: 1px solid rgba(255, 255, 255, 0.3);
 }
 .ir > nav > ul > li:last-child {
   border-bottom: none;
+  padding-bottom: 0;
 }
 .ir > nav > ul > li > a > p {
-  font-size: 18px;
-  line-height: 25px;
+  font-size: 1rem;
+  line-height: 1.5;
 }
 .ir > nav > ul > li > a > p:last-child {
-  font-size: 16px;
+  font-size: 0.9rem;
   color: rgba(255, 255, 255, 0.6);
 }

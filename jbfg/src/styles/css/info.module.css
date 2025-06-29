@@ -1,70 +1,117 @@
+@keyframes progressBar {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
 .info {
+  position: relative;
+  border-radius: clamp(2rem, 2.2vw, 5.5rem);
+  padding: 1.5rem;
+  -webkit-backdrop-filter: blur(10px);
+          backdrop-filter: blur(10px);
+  opacity: 0;
+  visibility: hidden;
   background: rgba(255, 255, 255, 0.75);
   color: #222222;
+  animation: fade-in2 1s ease-out forwards;
+  animation-delay: 1.2s;
 }
 .info > h2 {
-  padding-bottom: 24px;
+  font-size: 1.1rem;
+}
+.info > h2::before {
+  content: "";
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: white;
+  margin-right: 5px;
+}
+@keyframes fade-in2 {
+  from {
+    transform: translateY(30%);
+    visibility: hidden;
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    visibility: visible;
+    opacity: 1;
+  }
 }
 .info > h2::before {
   background: #0A31A8 !important;
 }
 .info > div > p, .info > nav > ul > li > p {
-  font-size: 13px;
-  text-indent: 5px;
+  font-size: 0.7rem;
+  text-indent: 2px;
   font-weight: bold;
 }
 .info > div {
-  padding-bottom: 28px;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  padding-top: 23px;
+  padding-bottom: 27px;
 }
 .info > div > div:nth-child(2), .info > div > div:last-child {
   text-align: right;
 }
 .info > div > div:nth-child(2) {
-  margin-top: 8px;
+  margin-top: 10px;
 }
 .info > div > div:nth-child(2) > small, .info > div > div:nth-child(2) > strong {
-  color: #222222;
+  color: #333333;
   font-weight: bold;
+}
+.info > div > div:nth-child(2) > strong {
+  font-size: 2.7rem;
+  letter-spacing: -1px;
 }
 .info > div > div:nth-child(2) > small {
   display: inline-block;
-  font-size: 20px;
-  margin-left: 3px;
+  font-size: 1.1rem;
+  margin-left: 5px;
   transform: translateY(-4px);
-}
-.info > div > div:nth-child(2) > strong {
-  font-size: 45px;
 }
 .info > div > div:last-child {
   margin-right: 2px;
+  transform: translateY(-3px);
 }
 .info > div > div:last-child > span {
-  font-size: 13px;
+  font-size: 0.75rem;
 }
 .info > div > div:last-child > span:first-child {
-  color: black;
+  color: #333333;
   margin-right: 5px;
 }
+.info > div > div:last-child > span:last-child {
+  font-weight: 600;
+}
 .info > nav {
-  margin-top: 28px;
-  padding-bottom: 7px;
+  padding-top: 25px;
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
 }
 .info > nav > ul > li {
   display: flex;
   justify-content: space-between;
   text-align: right;
-  margin-bottom: 10px;
 }
 .info > nav > ul > li > p {
   letter-spacing: 1px;
+  line-height: 2.2;
 }
 .info > nav > ul > li > div > p:first-child {
-  font-size: 15px;
+  font-size: 0.8rem;
   font-weight: bold;
-  line-height: 12px;
+  line-height: 1.5;
 }
 .info > nav > ul > li > div > p:last-child {
-  font-size: 14px;
-  line-height: 35px;
+  font-size: 0.75rem;
+  line-height: 2;
+  font-weight: 600;
 }

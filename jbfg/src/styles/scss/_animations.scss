@@ -1,0 +1,35 @@
+@keyframes progressBar {
+    from {
+        width:0;
+    } to {
+        width:100%;
+    }
+}
+
+@mixin fade-in($start-pos) {
+    @keyframes fade-in {
+        from {
+            transform:translateY($start-pos);
+        } to {
+            transform:translateY(0);
+        }
+    }
+
+    animation:fade-in 1s ease-out forwards;
+}
+
+@mixin fade-in2($start-pos) {
+    @keyframes fade-in2 {
+        from {
+            transform:translateY($start-pos);
+            visibility:hidden;
+            opacity:0;
+        } to {
+            transform:translateY(0);
+            visibility:visible;
+            opacity:1;
+        }
+    }
+    
+    animation:fade-in2 1s ease-out forwards;
+}

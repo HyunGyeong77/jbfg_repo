@@ -1,29 +1,68 @@
+@keyframes progressBar {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
 .creditRating {
-  border-radius: 45px;
-  padding: 23px 23px 15px;
+  position: relative;
+  border-radius: clamp(2rem, 2.2vw, 5.5rem);
+  padding: 1.5rem;
+  -webkit-backdrop-filter: blur(10px);
+          backdrop-filter: blur(10px);
+  opacity: 0;
+  visibility: hidden;
   background: rgba(0, 19, 74, 0.48);
   font-weight: bold;
   color: white;
+  animation: fade-in2 1s ease-out forwards;
+  animation-delay: 0.5s;
+}
+.creditRating > h2 {
+  font-size: 1.1rem;
+}
+.creditRating > h2::before {
+  content: "";
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: white;
+  margin-right: 5px;
+}
+@keyframes fade-in2 {
+  from {
+    transform: translateY(30%);
+    visibility: hidden;
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    visibility: visible;
+    opacity: 1;
+  }
 }
 .creditRating > nav > ul {
   display: flex;
-  padding-block: 18px;
+  justify-content: space-around;
+  margin-top: 1.2rem;
 }
 .creditRating > nav > ul > li {
   display: flex;
   align-items: center;
   flex-direction: column;
-  margin-top: 5px;
-  padding-inline: 12px;
-  width: 110px;
 }
 .creditRating > nav > ul > li > img {
   border-radius: 50%;
+  width: min(4.8em, 6.3vw);
+  height: min(4.8em, 6.3vw);
+  margin-bottom: 0.7rem;
   background: rgba(255, 255, 255, 0.2);
   border: 1px solid rgba(255, 255, 255, 0.3);
 }
 .creditRating > nav > ul > li > p {
-  margin-top: 13px;
   font-size: 15px;
   text-align: center;
   white-space: nowrap;

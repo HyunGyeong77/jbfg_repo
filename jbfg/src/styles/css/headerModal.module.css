@@ -1,0 +1,307 @@
+.headerModal {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  max-height: 0vh;
+  z-index: 100;
+  background: white;
+  overflow: hidden;
+  transition: max-height 1s;
+}
+.headerModal > .header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 6.5rem;
+  padding-inline: 3.7rem;
+  width: 100%;
+  background: white;
+  z-index: 50;
+}
+.headerModal > .header::after {
+  content: "";
+  display: block;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 1px;
+  background: rgba(0, 0, 0, 0.1);
+}
+.headerModal > .header > a:first-child > img {
+  width: 9rem;
+  height: auto;
+}
+.headerModal > .header > a:last-child {
+  position: relative;
+  overflow: hidden;
+  text-indent: 100%;
+  white-space: nowrap;
+  width: 1.3rem;
+  height: 1.3rem;
+}
+.headerModal > .header > a:last-child::before, .headerModal > .header > a:last-child::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  display: block;
+  width: 1.3rem;
+  height: 2px;
+  background: #333333;
+}
+.headerModal > .header > a:last-child::before {
+  transform: translate(-50%, -50%) rotate(135deg);
+}
+.headerModal > .header > a:last-child::after {
+  transform: translate(-50%, -50%) rotate(-135deg);
+}
+.headerModal > .section {
+  padding-inline: 3.7rem;
+  margin-top: 6.5rem;
+}
+.headerModal > .section > div {
+  padding-top: 4.6rem;
+  padding-bottom: 7rem;
+  max-width: 90.5rem;
+  margin-inline: auto;
+}
+.headerModal > .section > div > nav {
+  display: grid;
+  row-gap: 7rem;
+}
+.headerModal > .section > div > nav > .wrap {
+  position: relative;
+}
+.headerModal > .section > div > nav > .wrap::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -4.1rem;
+  display: block;
+  width: 100%;
+  height: 1px;
+  background: rgba(0, 0, 0, 0.1);
+}
+.headerModal > .section > div > nav > .wrap:last-child::after {
+  display: none;
+}
+.headerModal > .section > div > nav > .wrap > li > h2 {
+  font-size: 2rem;
+  color: #0A31A8;
+}
+.headerModal > .section > div > nav > .wrap > div {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(11rem, 1fr));
+  -moz-column-gap: 2.3em;
+       column-gap: 2.3em;
+  row-gap: 2.6em;
+  padding-top: 2.3rem;
+}
+.headerModal > .section > div > nav > .wrap > div > .menuWrap > li > a:hover, .headerModal > .section > div > nav > .wrap > div > .menuWrap > .subMenuWrap > li > a:hover {
+  color: #0A31A8;
+}
+.headerModal > .section > div > nav > .wrap > div > .menuWrap > li {
+  font-weight: bold;
+}
+.headerModal > .section > div > nav > .wrap > div > .menuWrap > li > a {
+  font-size: 1.1rem;
+}
+.headerModal > .section > div > nav > .wrap > div > .menuWrap > .subMenuWrap:nth-child(2) {
+  margin-top: 0.6rem;
+}
+.headerModal > .section > div > nav > .wrap > div > .menuWrap > .subMenuWrap > li {
+  padding-top: 0.8rem;
+}
+.headerModal > .section > div > nav > .wrap > div > .menuWrap > .subMenuWrap > li > a {
+  font-size: 0.9rem;
+  color: #666666;
+}
+
+@media (max-width: 1024px) {
+  .headerModal.empty > .section > div > nav:first-child > ul {
+    position: unset;
+  }
+  .headerModal > .header, .headerModal > .section {
+    padding-inline: 6vw;
+  }
+  .headerModal > .header {
+    height: clamp(5.7rem, 9.5vw, 6.5rem);
+  }
+  .headerModal > .header > div {
+    display: flex;
+    gap: 0.75rem;
+  }
+  .headerModal > .header > div > div {
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    font-size: 1.1rem;
+    font-weight: 600;
+    gap: 1.3rem;
+  }
+  .headerModal > .header > div > div::before {
+    content: "";
+    position: absolute;
+    bottom: 10%;
+    left: 51%;
+    display: block;
+    width: 1px;
+    height: 18px;
+    background: rgba(0, 0, 0, 0.3);
+  }
+  .headerModal > .header > div > div > a:first-child {
+    color: #0A31A8;
+    letter-spacing: 2px;
+  }
+  .headerModal > .header > div > div > a:last-child {
+    color: rgba(0, 0, 0, 0.3);
+  }
+  .headerModal > .section {
+    position: relative;
+    height: 103vh;
+    overflow-x: hidden;
+    overflow-y: auto;
+    margin-top: clamp(5.7rem, 9.5vw, 6.5rem);
+  }
+  .headerModal > .section::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 46%;
+    display: block;
+    width: 1px;
+    height: var(--after-height, 100vh);
+    background: rgba(0, 0, 0, 0.1);
+  }
+  .headerModal > .section > div {
+    position: relative;
+    padding-top: 2.7rem;
+  }
+  .headerModal > .section > div > nav {
+    display: inline-block;
+    vertical-align: top;
+    font-weight: bold;
+  }
+  .headerModal > .section > div > nav > ul {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  .headerModal > .section > div > nav > ul > li > a {
+    display: block;
+  }
+  .headerModal > .section > div > nav:first-child {
+    position: relative;
+    width: 45.5%;
+  }
+  .headerModal > .section > div > nav:first-child > ul {
+    position: fixed;
+  }
+  .headerModal > .section > div > nav:first-child > ul > li > a {
+    font-size: 1.6rem;
+    color: #666666;
+    padding-block: 1rem;
+  }
+  .headerModal > .section > div > nav:last-child {
+    width: 54.5%;
+  }
+  .headerModal > .section > div > nav:last-child > ul {
+    position: relative;
+  }
+  .headerModal > .section > div > nav:last-child > ul:last-child > li::after {
+    display: none;
+  }
+  .headerModal > .section > div > nav:last-child > ul > li {
+    padding: 1.3rem 0 1.8rem 5.4vw;
+  }
+  .headerModal > .section > div > nav:last-child > ul > li::after {
+    content: "";
+    display: block;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100vh;
+    height: 1px;
+    background: rgba(0, 0, 0, 0.1);
+  }
+  .headerModal > .section > div > nav:last-child > ul > li > a:hover, .headerModal > .section > div > nav:last-child > ul > li > ul > li > a:hover {
+    color: #0A31A8;
+  }
+  .headerModal > .section > div > nav:last-child > ul > li > a {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1.2rem;
+  }
+  .headerModal > .section > div > nav:last-child > ul > li > a > img {
+    width: 17px;
+    height: 17px;
+  }
+  .headerModal > .section > div > nav:last-child > ul > li > a.active {
+    color: #0A31A8;
+  }
+  .headerModal > .section > div > nav:last-child > ul > li > a.active > img {
+    transform: rotateX(180deg);
+  }
+  .headerModal > .section > div > nav:last-child > ul > li > a.active + ul {
+    max-height: 1000px;
+  }
+  .headerModal > .section > div > nav:last-child > ul > li > ul {
+    font-weight: 500;
+    color: #666666;
+    overflow: hidden;
+    max-height: 0;
+  }
+  .headerModal > .section > div > nav:last-child > ul > li > ul > li {
+    margin: 1.1rem 0 0 1rem;
+  }
+  .headerModal > .section > div > nav:last-child > ul > li > ul > li:first-child {
+    padding-top: 0.2rem;
+  }
+  .headerModal > .section > div > nav:last-child > ul > li > ul > li > a {
+    display: block;
+  }
+}
+@media (max-width: 680px) {
+  .headerModal .header {
+    height: 3.8rem;
+  }
+  .headerModal .header > div > img {
+    width: 1rem;
+    height: 1rem;
+  }
+  .headerModal .header > div > div::before {
+    height: 13px;
+  }
+  .headerModal .header > div > div > a {
+    font-size: 0.8rem;
+  }
+  .headerModal .section {
+    padding-inline: 1.2rem;
+    margin-top: 3.8rem;
+  }
+  .headerModal .section::after {
+    left: 45.7%;
+  }
+  .headerModal .section > div {
+    padding-top: 2rem;
+  }
+  .headerModal .section > div > nav:first-child > ul {
+    gap: 0;
+  }
+  .headerModal .section > div > nav:first-child > ul > li > a {
+    font-size: 1.1rem;
+  }
+  .headerModal .section > div > nav:last-child > ul > li {
+    padding-left: 1.2rem;
+    padding-bottom: 1rem;
+  }
+  .headerModal .section > div > nav:last-child > ul > li > a {
+    font-size: 0.95rem;
+  }
+  .headerModal .section > div > nav:last-child > ul > li > ul > li > a {
+    font-size: 0.85rem;
+  }
+}

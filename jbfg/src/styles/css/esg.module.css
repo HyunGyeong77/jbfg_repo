@@ -1,0 +1,129 @@
+@font-face {
+  font-family: "BobaesumJindoTTF";
+  src: url("https://fastly.jsdelivr.net/gh/projectnoonnu/2410-1@1.0/BobaesumJindoTTF.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Freesentation-9Black";
+  src: url("https://fastly.jsdelivr.net/gh/projectnoonnu/2404@1.0/Freesentation-9Black.woff2") format("woff2");
+  font-weight: 900;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Pretendard-Regular";
+  src: url("https://fastly.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff") format("woff");
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: "TTTtangsbudaejjigaeB";
+  src: url("https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2212@1.0/TTTtangsbudaejjigaeB.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+}
+@font-face {
+  font-family: "SBAggroB";
+  src: url("https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2108@1.1/SBAggroB.woff") format("woff");
+  font-weight: 900;
+  font-style: normal;
+}
+.section {
+  position: relative;
+  height: 100vh;
+  background: white;
+}
+.section > .content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  width: 100%;
+  padding-inline: 3.7rem;
+  overflow: hidden;
+  background: #0D2D77;
+}
+.section > .content > .bg_icon {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+.section > .content > .bg_icon > img {
+  position: absolute;
+}
+.section > .content > .bg_icon > img:first-child {
+  top: -340px;
+  left: -520px;
+}
+.section > .content > .bg_icon > img:nth-child(2) {
+  bottom: -910px;
+  left: -220px;
+}
+.section > .content > .bg_icon > img:last-child {
+  bottom: -220px;
+  right: -400px;
+}
+.section > .content > .inner {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 90.5rem;
+  margin-inline: auto;
+}
+.section > .content > .inner > div {
+  display: grid;
+  grid-template-columns: 1fr 50%;
+  padding-block: 5.9rem;
+  width: 100%;
+}
+.section > .content > .inner > div > .left {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  color: white;
+}
+.section > .content > .inner > div > .left > h3 {
+  font-size: 2rem;
+  font-family: "BobaesumJindoTTF";
+}
+.section > .content > .inner > div > .left > h3::before {
+  content: "";
+  display: inline-block;
+  width: 1.4rem;
+  height: 1.4rem;
+  background: #0A31A8;
+  border-radius: 50%;
+  transform: translateY(2px);
+  margin-right: 1rem;
+}
+.section > .content > .inner > div > .left > div > p {
+  font-weight: bold;
+  font-size: 3.7rem;
+  letter-spacing: -1px;
+  line-height: 1.4;
+}
+.section > .content > .inner > div > .right > div {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  margin-left: auto;
+  gap: 0.9rem;
+  width: 100%;
+}
+.section > .content > .inner > div > .right > div > div {
+  display: grid;
+  gap: 0.9rem;
+}
+.section > .content > .inner > div > .right > div > div:last-child > div:last-child > div:last-child > img {
+  margin-bottom: 1rem;
+}
+
+@media (min-width: 1025px) {
+  .section > .content > .inner > div > .right > div {
+    max-width: 38.5rem;
+  }
+}
+@media (max-width: 1024px) {
+  .section > .content > .inner > div > .right > div {
+    margin-left: unset;
+  }
+}

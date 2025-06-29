@@ -1,0 +1,408 @@
+@use '../../../levels' as *;
+@use '../../../mixins' as *;
+@use '../../../variables' as *;
+@use '../../../media' as *;
+
+.headerModal {
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    max-height:0vh;
+    z-index:$z-index-dropdown;
+    background:$white;
+    overflow:hidden;  
+    transition: max-height 1s;
+
+    & > .header {
+        @include flexSort(space-between, center);
+        height:6.5rem;
+        padding-inline:3.7rem;
+        width:100%;
+        background:$white;
+        z-index:$z-index-forward;
+
+        &::after {
+            content:"";
+            display:block;
+            position:absolute;
+            left:0;
+            bottom:0;
+            width:100%;
+            height:1px;
+            background:rgba(0, 0, 0, 0.1);
+        }
+
+        & > a:first-child > img {
+            width:9rem;
+            height:auto;
+        }
+
+        & > a:last-child {
+            position:relative;
+            overflow:hidden;
+            text-indent:100%;
+            white-space:nowrap;
+            width:1.3rem;
+            height:1.3rem;
+
+            &::before,
+            &::after {
+                content:"";
+                position:absolute;
+                left:50%;
+                top:50%;
+                display:block;
+                width:1.3rem;
+                height:2px;
+                background:$text_color;
+            }
+
+            &::before {
+                transform:translate(-50%, -50%) rotate(135deg);
+            }
+
+            &::after {
+                transform:translate(-50%, -50%) rotate(-135deg);
+            }
+        }
+    }
+
+    & > .section {
+        padding-inline:3.7rem;
+        margin-top:6.5rem;
+
+        & > div {
+            padding-top:4.6rem;
+            padding-bottom:7rem;
+            max-width:90.5rem;
+            margin-inline:auto;
+
+            & > nav {
+                display:grid;
+                row-gap:7rem;
+    
+                & > .wrap {
+                    position:relative;
+
+                    &::after {
+                        content:"";
+                        position:absolute;
+                        left:0;
+                        bottom:-4.1rem;
+                        display:block;
+                        width:100%;
+                        height:1px;
+                        background:rgba(0, 0, 0, 0.1);
+                    }
+
+                    &:last-child::after {
+                        display:none;
+                    }
+    
+                    & > li {
+                        & > h2 {
+                            font-size:2rem;
+                            color:$cobalt;
+                        }
+                    }
+    
+                    & > div {
+                        display:grid;
+                        grid-template-columns:repeat(auto-fill, minmax(11rem, 1fr));
+                        column-gap:2.3em;
+                        row-gap:2.6em;
+                        padding-top:2.3rem;
+    
+                        & > .menuWrap {
+
+                            & > li > a:hover,
+                            & > .subMenuWrap > li > a:hover {
+                                color:$cobalt;
+                            }
+    
+                            & > li {
+                                font-weight:bold;
+    
+                                & > a {
+                                    font-size:1.1rem;
+                                }
+                            }
+    
+                            & > .subMenuWrap {
+    
+                                &:nth-child(2) {
+                                    margin-top:0.6rem;
+                                }
+    
+                                & > li {
+                                    padding-top:0.8rem;
+    
+                                    & > a {
+                                        font-size:0.9rem;
+                                        color:$text_lightColor;
+                                    }
+                                }
+                            }
+                        } 
+                    }
+                }
+            }
+        }
+    }
+}
+
+@include media-lg {
+    .headerModal {
+        &.empty {
+            & > .section > div > nav:first-child > ul {
+                position:unset;
+            }
+        }
+
+        & > .header,
+        & > .section {
+            padding-inline:6vw;
+        }
+
+        & > .header {
+            height:clamp(5.7rem, 9.5vw, 6.5rem);
+
+            & > div {
+                display:flex;
+                gap:0.75rem;
+
+                & > div {
+                    @include flexSort(space-between, null);
+                    position:relative;
+                    font-size:1.1rem;
+                    font-weight:600;
+                    gap:1.3rem;
+
+                    &::before {
+                        content:"";
+                        position:absolute;
+                        bottom:10%;
+                        left:51%;
+                        display:block;
+                        width:1px;
+                        height:18px;
+                        background:rgba(0, 0, 0, 0.3);
+                    }
+
+                    & > a:first-child {
+                        color:$cobalt;
+                        letter-spacing:2px;
+                    }
+
+                    & > a:last-child {
+                        color:rgba(0, 0, 0, 0.3);
+                    }
+                }     
+            }
+        }
+
+        & > .section {
+            position:relative;
+            height:103vh;
+            overflow-x:hidden;
+            overflow-y:auto;
+            margin-top:clamp(5.7rem, 9.5vw, 6.5rem);
+
+            &::after {
+                content:"";
+                position:absolute;
+                top:0;
+                left:46%;
+                display:block;
+                width:1px;
+                height:var(--after-height, 100vh);
+                background:rgba(0, 0, 0, 0.1);
+            }
+
+            & > div {
+                position:relative;
+                padding-top:2.7rem;
+
+                & > nav {
+                    display:inline-block;
+                    vertical-align:top;
+                    font-weight:bold;
+
+                    & > ul {
+                        display:flex;
+                        flex-direction:column;
+                        gap:1rem;
+
+                        & > li {
+
+                            & > a {
+                                display:block;
+                            }
+                        }
+                    }
+                }
+
+                & > nav:first-child {
+                    position:relative;
+                    width:45.5%;
+
+                    & > ul {
+                        position:fixed;
+
+                        & > li > a {
+                            font-size:1.6rem;
+                            color:$text_lightColor;
+                            padding-block:1rem;
+                        }
+                    }
+                }
+
+                & > nav:last-child {
+                    width:54.5%;
+
+                    & > ul {
+                        position:relative;
+
+                        &:last-child > li::after {
+                            display:none;
+                        }
+                    
+                        & > li {
+                            padding:1.3rem 0 1.8rem 5.4vw;
+                            
+                            &::after {
+                                content:"";
+                                display:block;
+                                position:absolute;
+                                bottom:0;
+                                left:0;
+                                width:100vh;
+                                height:1px;
+                                background:rgba(0, 0, 0, 0.1);
+                            }
+
+                            & > a:hover,
+                            & > ul > li > a:hover {
+                                color:$cobalt;
+                            }
+    
+                            & > a {
+                                @include flexSort(space-between, center);
+                                font-size:1.2rem;
+
+                                & > img {
+                                    width:17px;
+                                    height:17px;
+                                }
+
+                                &.active {
+                                    color:$cobalt;
+
+                                    & > img {
+                                        transform:rotateX(180deg);
+                                    }
+
+                                    & + ul {
+                                        max-height:1000px;
+                                    }
+                                }
+                            }
+
+                            & > ul {
+                                font-weight:500;
+                                color:$text_lightColor;
+                                overflow:hidden;
+                                max-height:0;
+
+                                & > li {
+                                    margin:1.1rem 0 0 1rem;
+
+                                    &:first-child {
+                                        padding-top:0.2rem;
+                                    }
+
+                                    & > a {
+                                        display:block;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media (max-width:680px) {
+    .headerModal {
+        .header {
+            height:3.8rem;
+            & > div {
+
+                & > img {
+                    width:1rem;
+                    height:1rem;
+                }
+
+                & > div {
+
+                    &::before {
+                        height:13px;
+                    }
+
+                    & > a {
+                        font-size:0.8rem;
+                    }
+                }
+            }
+        }
+
+        .section {
+            padding-inline:1.2rem;
+            margin-top:3.8rem;
+
+            &::after {
+                left:45.7%;
+            }
+
+            & > div {
+                padding-top:2rem;
+
+                & > nav:first-child > ul {
+                    gap:0;
+
+                    & > li > a {
+                        font-size:1.1rem;
+                    }
+                }
+
+                & > nav:last-child {
+
+                    & > ul {
+
+                        & > li {
+                            padding-left:1.2rem;
+                            padding-bottom:1rem;
+
+                            & > a {
+                                font-size:0.95rem;
+                            }
+
+                            & > ul {
+
+                                & > li {
+
+                                    & > a {
+                                        font-size:0.85rem;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

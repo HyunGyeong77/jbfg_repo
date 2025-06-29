@@ -1,10 +1,16 @@
+@use '../../mixins' as *;
+@use '../../variables' as *;
+@use '../../animations' as *;
+
 .info {   // 주가정보
+    @include containerStyle;
     background: rgba(255, 255, 255, 0.75);
     color:#222222;
+    @include fade-in2(30%);
+    animation-delay:1.2s;
 
     & > h2 {
-        padding-bottom:24px;
-
+        
         &::before {
             background:#0A31A8 !important;
         }
@@ -12,14 +18,14 @@
 
     & > div > p,
     & > nav > ul > li > p {
-        font-size:13px;
-        text-indent:5px;
+        font-size:0.7rem;
+        text-indent:2px;
         font-weight:bold;
     }
 
     & > div {
-        padding-bottom:28px;
-        border-bottom:1px solid rgba(0, 0, 0, 0.1);
+        padding-top:23px;
+        padding-bottom:27px;
 
         & > div:nth-child(2),
         & > div:last-child {
@@ -27,66 +33,76 @@
         }
 
         & > div:nth-child(2) {
-            margin-top:8px;
+            margin-top:10px;
 
             & > small,
             & > strong {
-                color:#222222;
+                color:$text_color;
                 font-weight:bold;
+            }
+
+            & > strong {
+                font-size:2.7rem;
+                letter-spacing:-1px;
             }
 
             & > small {
                 display:inline-block;
-                font-size:20px;
-                margin-left:3px;
+                font-size:1.1rem;
+                margin-left:5px;
                 transform:translateY(-4px);
-            }
-
-            & > strong {
-                font-size:45px;
             }
         }
 
         & > div:last-child {
             margin-right:2px;
+            transform:translateY(-3px);
 
             & > span {
-                font-size:13px;
-                
+                font-size:0.75rem;
             }
 
             & > span:first-child {
-                color:black;
+                color:$text_color;
                 margin-right:5px;
+            }
+
+            & > span:last-child {
+                font-weight:600;
             }
         }
     }
 
     & > nav {
-        margin-top:28px;
-        padding-bottom:7px;
+        padding-top:25px;
+        display:flex;
+        flex-direction:column;
+        gap:0.7rem;
+        border-top:1px solid rgba(0, 0, 0, 0.1);
         
         & > ul {
+
             & > li {
                 display:flex;
                 justify-content:space-between;
                 text-align:right;
-                margin-bottom:10px;
 
                 & > p {
                     letter-spacing:1px;
+                    line-height:2.2;
                 }
 
                 & > div {
                     & > p:first-child {
-                        font-size:15px;
+                        font-size:0.8rem;
                         font-weight:bold;
-                        line-height:12px;
+                        line-height:1.5;
                     }
 
                     & > p:last-child {
-                        font-size:14px;
-                        line-height:35px;
+                        font-size:0.75rem;
+                        line-height:2;
+                        font-weight:600;
                     }
                 }
             }

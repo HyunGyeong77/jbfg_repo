@@ -1,8 +1,13 @@
 @use '../../variables' as *;
 @use '../../mixins' as *;
+@use '../../media' as *;
+@use '../../animations' as *;
 
 .performance {  // 경영실적
+    @include containerStyle;
     background:rgba(25, 228, 238, 0.4);
+    @include fade-in2(30%);
+    animation-delay:1s;
 
     & > h2,
     & > div > p,
@@ -11,44 +16,45 @@
     }
 
     & > h2 {
-        padding-bottom:22px;
+        padding-bottom:18px;
     }
 
     & > div {
-        padding-bottom:10px;
+        display:flex;
+        flex-direction:column;
+        padding-bottom:13px;
         border-bottom:1px solid rgba(255, 255, 255, 0.2);
 
         & > p {
             font-weight:bold;
-            text-indent:5px;
-            line-height:35px;
-
-            &:first-child {
-                font-size:24px;
-            }
-
-            &:last-child {
-                font-size:23px;
-            }
+            line-height:1.4;
+            font-size:1.4rem;
+            word-break:keep-all;
         }
     }
 
     & > nav > ul {
-        padding-top:10px;
-        margin-bottom:25px;
+        margin-top:0.8rem;
 
         & > li {
-            margin-bottom:10px;
-            width:225px;
+            padding-bottom:12px;
             white-space:nowrap;
-            
+
+            &:last-child {
+                padding-bottom:0;
+            }
+                        
             & > a {
                 @include flexSort(space-between, center);
                 font-weight:600;
-                text-indent:5px;
 
                 & > p {
-                    font-size:18px;
+                    font-size:1rem;
+                }
+
+                & > img {
+                    width:2.2rem;
+                    height:2.2rem;
                 }
             }
         }

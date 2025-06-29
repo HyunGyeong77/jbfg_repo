@@ -4,7 +4,7 @@ import Image from 'next/image';
 const ClickBtnIcon = ({src, alt}: Types) => {
     return (
         <Image src={src} alt={alt} width={40} height={40}
-            className={styles.clickBtnIcon} />
+            className={styles.clickBtnIcon} priority={true} />
     );
 }
 

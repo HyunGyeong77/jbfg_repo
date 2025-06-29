@@ -1,39 +1,40 @@
 @use '../../variables' as *;
+@use '../../mixins' as *;
+@use '../../animations' as *;
 
 .ir {   // IR활동
+    @include containerStyle;
     background:rgba(0, 19, 74, 0.48);
     font-weight:bold;
-    height:300px;
+    @include fade-in2(30%);
+    animation-delay:0.7s;
 
     & > h2,
     & > nav > ul > li > a > p:first-child {
         color:$white;
     }
 
-    & > h2 {
-        padding-bottom:5px;
-    }
-
     & > nav > ul {
-        
+        margin-top:0.7rem;
+
         & > li {
-            margin-left:5px;
-            margin-top:15px;
-            padding-bottom:10px;
+            padding-block:13px;
+            margin-left:3px;
             border-bottom:1px solid rgba(255, 255, 255, 0.3);
 
             &:last-child {
                 border-bottom:none;
+                padding-bottom:0;
             }
 
             & > a {
                 & > p {
-                    font-size:18px;
-                    line-height:25px;
+                    font-size:1rem;
+                    line-height:1.5;
                 }
 
                 & > p:last-child {
-                    font-size:16px;
+                    font-size:0.9rem;
                     color:rgba(255, 255, 255, 0.6);
                 }
             }

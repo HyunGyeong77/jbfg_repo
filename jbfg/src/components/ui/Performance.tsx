@@ -10,8 +10,6 @@ function Performance() {
 
     const downloadIsHover = (bool: boolean, index: number) => (e: React.MouseEvent) => {
         iconClassChange(e, bool);
-        const target = e.currentTarget as HTMLAnchorElement;
-        console.log(target.querySelector("img")?.src);
 
         setIsDownload((prev) => {
             const newData = [...prev];
@@ -25,8 +23,7 @@ function Performance() {
         <div className={styles.performance}>   {/* 경영실적 */}
             <h2>{text.performance.title}</h2>
             <div>
-                <p>{text.performance.content[0]}</p>
-                <p>{text.performance.content[1]}</p>
+                <p>{text.performance.content}</p>
             </div>
             <nav>
                 <ul>

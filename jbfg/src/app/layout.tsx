@@ -1,15 +1,22 @@
 'use client';
 
-import {Header} from 'components/layout/Header';
 import "styles/globals.css";
+import {Header} from 'components/layout/Header';
+import {HeaderModal} from 'components/common/modal/HeaderModal'; 
 import {useEffect} from 'react';
+import {scrollAtom} from 'lib/store/scroll';
+import {useAtomValue} from 'jotai';
 
 export default function RootLayout({children}:Readonly<{children: React.ReactNode;}>) {
+  const scrollValue = useAtomValue(scrollAtom);
+
   useEffect(() => {
-    let currentScroll = 0;
-    let targetScroll = 0;
+    if(scrollValue) return;
+
+    let currentScroll = window.scrollY;
+    let targetScroll = window.scrollY;
     let isTicking = false;
-    const ease = 0.02;
+    const ease = 0.05;
 
     const scrollHandler = () => {
         if(!isTicking) {
@@ -44,7 +51,7 @@ export default function RootLayout({children}:Readonly<{children: React.ReactNod
             requestAnimationFrame(smoothScroll);
         }
     }
-
+   
     window.addEventListener("wheel", wheelHandler, {passive: false});
     window.addEventListener("scroll", scrollHandler);
 
@@ -52,11 +59,12 @@ export default function RootLayout({children}:Readonly<{children: React.ReactNod
         window.removeEventListener("wheel", wheelHandler);
         window.removeEventListener("scroll", scrollHandler);
     });
-  }, []);
+  }, [scrollValue]);
 
   return (
     <html lang="en">
       <body>
+        <HeaderModal />
         <Header />
         {children}
       </body>

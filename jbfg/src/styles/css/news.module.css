@@ -1,0 +1,64 @@
+.section {
+  padding-inline: 3.7rem;
+  background: #FCFCFC;
+}
+.section > div {
+  width: 90.5rem;
+  margin-inline: auto;
+  padding-top: 9rem;
+  padding-bottom: 6rem;
+}
+.section > div > div {
+  display: grid;
+  grid-template-columns: 1fr 56.4%;
+}
+.section > div > div > .left {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  color: #333333;
+  font-weight: bold;
+}
+.section > div > div > .left > h2 {
+  font-family: "SBAggroB";
+  font-size: 1.9rem;
+}
+.section > div > div > .left > h2::before {
+  content: "";
+  display: inline-block;
+  width: 1.4rem;
+  height: 1.4rem;
+  border-radius: 50%;
+  background: #0A31A8;
+  margin-right: 0.8rem;
+  transform: translateY(6px);
+}
+.section > div > div > .left > p {
+  word-break: keep-all;
+  font-size: 3.6rem;
+  line-height: 1.4;
+}
+.section > div > div > .right {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+.section > div > div > .right > div {
+  display: grid;
+  gap: 4.5rem;
+}
+.section > div > div > .right > div:first-child > div:last-child {
+  align-self: flex-end;
+}
+.section > div > div > .right > div:first-child > div > a > div, .section > div > div > .right > div:first-child > div > a > div > img {
+  width: 25rem;
+  height: 20rem;
+}
+.section > div > div > .right > div:last-child > div:first-child > a > div, .section > div > div > .right > div:last-child > div:first-child > a > div > img {
+  width: 25rem;
+  height: 29rem;
+}
+.section > div > div > .right > div:last-child > div:last-child > a > div, .section > div > div > .right > div:last-child > div:last-child > a > div > img {
+  width: 25rem;
+  height: 18.1rem;
+}

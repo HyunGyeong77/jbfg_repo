@@ -1,0 +1,69 @@
+.esgComp {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 1.6rem;
+  min-height: 20.2rem;
+  border-radius: clamp(26px, 4.2vw, 2.4rem);
+  background: #0B235B;
+}
+.esgComp > div:first-child {
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+}
+.esgComp > div:first-child > h2, .esgComp > div:first-child > div > a {
+  color: white;
+}
+.esgComp > div:first-child > h2 {
+  font-size: 1.9rem;
+  margin-bottom: 0.2rem;
+}
+.esgComp > div:first-child > div {
+  word-break: keep-all;
+}
+.esgComp > div:first-child > div > a {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.3rem 0.4rem 0.4rem 0.9rem;
+  border-radius: 30px;
+  background: rgba(255, 255, 255, 0.16);
+}
+.esgComp > div:first-child > div > a > span {
+  font-size: 0.9rem;
+  font-weight: bold;
+}
+.esgComp > div:first-child > div > a > img {
+  background: none;
+  width: 2rem;
+  height: 2rem;
+}
+.esgComp > div:first-child > div > p {
+  color: white;
+  opacity: 0.7;
+  font-size: 1rem;
+  line-height: 1.3;
+}
+.esgComp > div:last-child {
+  display: flex;
+  justify-content: space-between;
+}
+.esgComp > div:last-child > a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-self: flex-end;
+  width: 2.4rem;
+  height: 2.4rem;
+  background: rgba(255, 255, 255, 0.16);
+  border-radius: 50%;
+}
+.esgComp > div:last-child > a > img {
+  scale: 1;
+  width: 2.1rem;
+  height: 2.1rem;
+  background: none;
+}
+.esgComp > div:last-child > img {
+  width: 7rem;
+}

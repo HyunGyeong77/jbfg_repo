@@ -16,12 +16,11 @@ function Report() {
     return (
         <div className={styles.report}>
             <div>
-                <Image src="/images/bg-donut.png" alt="bg-donut" width={30} height={30} />
+                <Image src="/images/bg-donut.png" alt="bg-donut" width={353} height={193} priority={true} />
             </div>
             <h2>{text.report.title}</h2>
             <div>
-                <p>{text.report.content[0]}</p>
-                <p>{text.report.content[1]}</p>
+                <p>{text.report.content}</p>
             </div>
             <a href="#" onMouseEnter={arrowIsHover(true)} onMouseLeave={arrowIsHover(false)}>
                 {!isArrow ? 

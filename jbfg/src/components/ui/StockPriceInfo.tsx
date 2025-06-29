@@ -1,3 +1,5 @@
+"use client";
+
 import styles from 'styles/css/info.module.css';
 import {text} from 'services/heroService';
 import {useState, useEffect} from 'react';

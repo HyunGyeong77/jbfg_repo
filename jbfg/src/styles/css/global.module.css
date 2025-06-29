@@ -45,6 +45,14 @@
   position: absolute;
   bottom: -19.5%;
 }
+.section > .bg > div > img {
+  width: 50rem;
+  height: 50rem;
+}
+.section > .bg > div > div > img {
+  width: 50rem;
+  height: 50rem;
+}
 .section > .content {
   position: relative;
   color: white;

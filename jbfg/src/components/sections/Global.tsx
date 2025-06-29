@@ -1,15 +1,16 @@
 import styles from 'styles/css/global.module.css';
 import {text} from 'services/globalService';
 import GlobalComp from '@ui/GlobalComp';
+import Image from 'next/image';
 
 function Global() {
     return (
         <section className={styles.section}>
             <div className={styles.bg}>
                 <div>
-                    <img src="/jbfg/icons/earth-o.svg" />
+                    <Image src="/icons/earth-o.svg" alt="earth-o" width={30} height={30} />
                     <div>
-                        <img src="/jbfg/icons/nations.svg" />
+                        <Image src="/icons/nations.svg" alt="nations" width={30} height={30} />
                     </div>
                 </div>
             </div>

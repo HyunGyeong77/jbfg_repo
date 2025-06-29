@@ -1,5 +1,6 @@
 import styles from 'styles/css/family.module.css';
 import {text} from 'services/familyService';
+import Image from 'next/image';
 
 function Family() {
     return (
@@ -13,11 +14,11 @@ function Family() {
                     {Object.values(text.company).map((item, index) => (
                         <ul key={item.title + index}>
                             <a href="#">
-                                <li><img src={item.img} /></li>
+                                <li><Image src={item.img} alt={item.img} width={30} height={30} /></li>
                                 <li><span>{item.type}</span></li>
                                 <li><h3>{item.title}</h3></li>
                                 <li><p>{item.content[0]}<br />{item.content[1]}</p></li>
-                                <li><img src="/jbfg/icons/arrow_right.svg" /></li>
+                                <li><Image src="/icons/arrow_right.svg" alt="arrow_right" width={30} height={30} /></li>
                             </a>
                         </ul>
                     ))}

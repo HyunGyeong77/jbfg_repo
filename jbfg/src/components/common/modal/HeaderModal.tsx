@@ -1,3 +1,5 @@
+"use client";
+
 import 'styles/globals.css';
 import styles from 'styles/css/headerModal.module.css';
 import {text} from 'services/headerService';
@@ -117,7 +119,7 @@ export function HeaderModal() {
                     </a>
                     :
                     <div>
-                        <img src="/jbfg/icons/sitemap.svg" />
+                        <Image src="/icons/sitemap.svg" alt="sitemap" width={30} height={30} />
                         <div>
                             <a href="#">KO</a>
                             <a href="#">EN</a>
@@ -171,7 +173,7 @@ export function HeaderModal() {
                                             <a href="#" onClick={mobileMenu_onClick}>
                                                 <span>{menu}</span>
                                                 {subMenuArr.length !== 0 ?
-                                                    <img src="/jbfg/icons/chevron-d.svg" />
+                                                    <Image src="/icons/chevron-d.svg" alt="chevron-d" width={30} height={30} />
                                                     : null
                                                 }
                                             </a>

@@ -1,11 +1,12 @@
 import styles from 'styles/css/globalComp.module.css';
 import {GlobalServiceProps} from 'types/globalServiceProps';
+import Image from 'next/image';
 
 function GlobalComp({ country }: GlobalServiceProps) {
     return (
         <div className={styles.globalComp}>
             <div>
-                <img src={country.img} />
+                <Image src={country.img} alt={country.img} width={30} height={30} />
                 <p>{country.company}</p>
             </div>
             <div>

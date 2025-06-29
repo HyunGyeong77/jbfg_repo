@@ -172,6 +172,11 @@
                 display:flex;
                 gap:0.75rem;
 
+                & > img {
+                    width:1.4rem;
+                    height:1.4rem;
+                }
+
                 & > div {
                     @include flexSort(space-between, null);
                     position:relative;
@@ -388,6 +393,11 @@
 
                             & > a {
                                 font-size:0.95rem;
+
+                                & > img {
+                                    width:0.8rem;
+                                    height:0.8rem;
+                                }
                             }
 
                             & > ul {

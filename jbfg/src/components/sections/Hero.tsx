@@ -8,6 +8,7 @@ import Performance from '@ui/Performance';
 import StockPriceInfo from '@ui/StockPriceInfo';
 import {text} from 'services/heroService';
 import {useRef, useState, useEffect} from 'react';
+import Image from 'next/image';
 
 function Hero() {
     const sectionRef = useRef<HTMLElement>(null);
@@ -40,7 +41,7 @@ function Hero() {
             const sectionRef_cur = sectionRef.current as HTMLElement;
             const videoRef_cur = videoRef.current as HTMLVideoElement;
             const scrollPosition = window.scrollY;
-            let translateY = Math.min(200, Math.max(0, scrollPosition * scrollMove));   // 스크롤 이동에 따른 video의 최대 이동 값을 구하기 위한 변수 (0 ~ 200)
+            const translateY = Math.min(200, Math.max(0, scrollPosition * scrollMove));   // 스크롤 이동에 따른 video의 최대 이동 값을 구하기 위한 변수 (0 ~ 200)
             const maxScroll = sectionRef_cur.offsetHeight as number;    // sectionRef의 현재 height 값
             const progress = Math.min(scrollPosition / maxScroll, 1);   // 스크롤 이동에 따른 section의 border-bottom-radius 값을 구하기 위한 변수
             const newRadius = 80 * progress;    // border-bottom-radius의 최대 값은 80
@@ -165,7 +166,7 @@ function Hero() {
                                         <div ref={progressBarRef}></div>
                                     </div>
                                     <button ref={progressBtnRef} onClick={btnOnClick}>
-                                        <img src={isPlay ? "/jbfg/icons/pause.svg" : "/jbfg/icons/play.svg"} />
+                                        <Image src={isPlay ? "/icons/pause.svg" : "/icons/play.svg"} alt={isPlay ? "pause" : "play"} width={30} height={30} />
                                     </button>
                                 </div>
                             </div>

@@ -133,6 +133,10 @@
     display: flex;
     gap: 0.75rem;
   }
+  .headerModal > .header > div > img {
+    width: 1.4rem;
+    height: 1.4rem;
+  }
   .headerModal > .header > div > div {
     display: flex;
     justify-content: space-between;
@@ -300,6 +304,10 @@
   }
   .headerModal .section > div > nav:last-child > ul > li > a {
     font-size: 0.95rem;
+  }
+  .headerModal .section > div > nav:last-child > ul > li > a > img {
+    width: 0.8rem;
+    height: 0.8rem;
   }
   .headerModal .section > div > nav:last-child > ul > li > ul > li > a {
     font-size: 0.85rem;

@@ -21,6 +21,16 @@
                 position:absolute;
                 bottom:-19.5%;
             }
+
+            & > img {
+                width:50rem;
+                height:50rem;
+            }
+
+            & > div > img {
+                width:50rem;
+                height:50rem;
+            }
         }
     }
 

@@ -29,18 +29,24 @@
             }
     
             & > img:first-child {
+                width:1080px;
+                height:1080px;
                 top:-340px;
                 left:-520px;
             }
     
             & > img:nth-child(2) {
+                width:930px;
+                height:1430px;
                 bottom:-910px;
                 left:-220px;
             }
     
             & > img:last-child {
-                bottom:-220px;
-                right:-400px;
+                width:960px;
+                height:960px;
+                bottom:-240px;
+                right:-440px;
             }
         }
         
@@ -104,6 +110,7 @@
                         & > div:last-child {
                             & > div:last-child > div:last-child > img {
                                 margin-bottom:1rem;
+                                height:6rem;
                             }
                         }
                     }

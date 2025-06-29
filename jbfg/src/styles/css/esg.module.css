@@ -52,16 +52,22 @@
   position: absolute;
 }
 .section > .content > .bg_icon > img:first-child {
+  width: 1080px;
+  height: 1080px;
   top: -340px;
   left: -520px;
 }
 .section > .content > .bg_icon > img:nth-child(2) {
+  width: 930px;
+  height: 1430px;
   bottom: -910px;
   left: -220px;
 }
 .section > .content > .bg_icon > img:last-child {
-  bottom: -220px;
-  right: -400px;
+  width: 960px;
+  height: 960px;
+  bottom: -240px;
+  right: -440px;
 }
 .section > .content > .inner {
   position: relative;
@@ -115,6 +121,7 @@
 }
 .section > .content > .inner > div > .right > div > div:last-child > div:last-child > div:last-child > img {
   margin-bottom: 1rem;
+  height: 6rem;
 }
 
 @media (min-width: 1025px) {

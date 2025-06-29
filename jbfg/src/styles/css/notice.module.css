@@ -32,6 +32,8 @@
   position: fixed;
   bottom: 0;
   z-index: -1;
+  width: 100vw;
+  height: 100vh;
 }
 .section > .content {
   padding-inline: 3.7rem;

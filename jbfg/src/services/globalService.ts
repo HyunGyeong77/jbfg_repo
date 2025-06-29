@@ -8,7 +8,7 @@ export const text = {
                 ["25", "프놈펜상업은행"],
                 ["1", "JB프놈펜자산운용"]
             ],
-            img: "/jbfg/icons/flag-kh.svg"
+            img: "/icons/flag-kh.svg"
         },
         myanmar: {
             company: "미얀마 (Myanmar)",
@@ -16,7 +16,7 @@ export const text = {
                 ["19", "JB캐피탈 미얀마"],
                 ["1", "JB우리캐피탈"]
             ],
-            img: "/jbfg/icons/flag-mm.svg"
+            img: "/icons/flag-mm.svg"
         },
         vietnam: {
             company: "베트남 (Vietnam)",
@@ -26,7 +26,7 @@ export const text = {
                 ["1", "JB증권 베트남"],
                 ["1", "JB우리캐피탈"]
             ],
-            img: "/jbfg/icons/flag-vn.svg"
+            img: "/icons/flag-vn.svg"
         },
         korea: {
             company: "대한민국 (Korea)",
@@ -38,7 +38,7 @@ export const text = {
                 ["2", "JB자산운용"],
                 ["2", "JB인베스트먼트"]
             ],
-            img: "/jbfg/icons/flag-kr.svg"
+            img: "/icons/flag-kr.svg"
         }
     }
 }

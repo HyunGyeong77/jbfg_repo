@@ -1,10 +1,11 @@
 import styles from 'styles/css/notice.module.css';
 import {text} from 'services/noticeService';
+import Image from 'next/image';
 
 function Notice() {
     return (
         <section className={styles.section}>
-            <img src="/jbfg/images/bg-notice.jpg" />
+            <Image src="/images/bg-notice.jpg" alt="bg-notice" width={30} height={30} />
             <div className={styles.content}>
                 <div className={styles.inner}>
                     <div className={styles.left}>
@@ -19,7 +20,7 @@ function Notice() {
                                     <p>{item.content}</p>
                                 </div>
                                 <div>
-                                    <img src="/jbfg/icons/arrow_right.svg" />
+                                    <Image src="/icons/arrow_right.svg" alt="arrow_right" width={30} height={30} />
                                 </div>
                             </a>
                         ))}

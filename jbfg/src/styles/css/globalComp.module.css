@@ -7,6 +7,10 @@
 .globalComp > div:first-child {
   border-bottom: 1px solid rgba(255, 255, 255, 0.2);
 }
+.globalComp > div:first-child > img {
+  width: 2.9rem;
+  height: 2.9rem;
+}
 .globalComp > div:first-child > p {
   font-size: 1.2rem;
   padding-top: 0.2rem;

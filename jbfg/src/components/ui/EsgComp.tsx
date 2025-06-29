@@ -2,6 +2,7 @@ import styles from 'styles/css/esgComp.module.css';
 import ClickBtnIcon from '@common/buttons/ClickBtnIcon';
 import {esgServiceProps} from 'types/esgServiceProps';
 import {text} from 'services/esgService';
+import Image from 'next/image';
 
 function EsgComp({ textType, img }: esgServiceProps) {
     return (
@@ -22,7 +23,7 @@ function EsgComp({ textType, img }: esgServiceProps) {
                 <a href="#">
                     <ClickBtnIcon src="/images/arrow.png" alt="arrow" />
                 </a>
-                <img src={img} />
+                <Image src={img} alt={img} width={125} height={125} />
             </div>
         </div>
     );

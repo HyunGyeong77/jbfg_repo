@@ -8,7 +8,7 @@ import Image from 'next/image';
 import {scrollAtom} from 'lib/store/scroll';
 import {useSetAtom} from 'jotai';
 
-export function Header() {
+function Header() {
     const headerRef = useRef<HTMLElement>(null);
     const [isMenu, setIsMenu] = useState(false);
     const setScroll = useSetAtom(scrollAtom);
@@ -153,3 +153,5 @@ export function Header() {
         </header>
     );
 }
+
+export default Header;

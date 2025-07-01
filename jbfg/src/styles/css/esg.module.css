@@ -28,6 +28,14 @@
   font-weight: 900;
   font-style: normal;
 }
+@keyframes progressBar {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
 .section {
   position: relative;
   height: 100vh;
@@ -52,22 +60,25 @@
   position: absolute;
 }
 .section > .content > .bg_icon > img:first-child {
-  width: 1080px;
-  height: 1080px;
-  top: -340px;
-  left: -520px;
+  width: 100%;
+  height: 120%;
+  top: -37%;
+  left: -49%;
+  transform: rotateZ(-140deg);
 }
 .section > .content > .bg_icon > img:nth-child(2) {
-  width: 930px;
-  height: 1430px;
-  bottom: -910px;
-  left: -220px;
+  width: 100%;
+  height: 140%;
+  bottom: -125%;
+  left: -35%;
+  transform: rotate(-40deg);
 }
 .section > .content > .bg_icon > img:last-child {
-  width: 960px;
-  height: 960px;
-  bottom: -240px;
-  right: -440px;
+  width: 100%;
+  height: 105%;
+  bottom: -20%;
+  right: -45%;
+  transform: translate3d(15%, 35%, 0);
 }
 .section > .content > .inner {
   position: relative;
@@ -88,11 +99,16 @@
   gap: 1.5rem;
   color: white;
 }
-.section > .content > .inner > div > .left > h3 {
+.section > .content > .inner > div > .left > div:first-child, .section > .content > .inner > div > .left > div:last-child > div {
+  overflow: hidden;
+}
+.section > .content > .inner > div > .left > div:first-child > h3 {
+  display: inline-block;
   font-size: 2rem;
   font-family: "BobaesumJindoTTF";
+  transform: translateY(100%);
 }
-.section > .content > .inner > div > .left > h3::before {
+.section > .content > .inner > div > .left > div:first-child > h3::before {
   content: "";
   display: inline-block;
   width: 1.4rem;
@@ -102,11 +118,12 @@
   transform: translateY(2px);
   margin-right: 1rem;
 }
-.section > .content > .inner > div > .left > div > p {
+.section > .content > .inner > div > .left > div:last-child > div > p {
   font-weight: bold;
   font-size: 3.7rem;
   letter-spacing: -1px;
   line-height: 1.4;
+  transform: translateY(100%);
 }
 .section > .content > .inner > div > .right > div {
   display: grid;
@@ -119,9 +136,96 @@
   display: grid;
   gap: 0.9rem;
 }
-.section > .content > .inner > div > .right > div > div:last-child > div:last-child > div:last-child > img {
+.section > .content > .inner > div > .right > div > div > div {
+  opacity: 0;
+  visibility: hidden;
+}
+.section > .content > .inner > div > .right > div > .right > div:last-child > div:last-child > img {
   margin-bottom: 1rem;
   height: 6rem;
+}
+
+.section.anim > .content > .bg_icon > img:first-child {
+  transform: rotateZ(0);
+  transition: transform 1.5s;
+  transition-timing-function: ease-out;
+}
+.section.anim > .content > .bg_icon > img:nth-child(2) {
+  bottom: -85%;
+  left: -35%;
+  transform: rotate(0);
+  transition: transform 1.5s, bottom 1.5s;
+  transition-delay: 0.1s;
+}
+.section.anim > .content > .bg_icon > img:last-child {
+  transform: translate3d(0, 0, 0);
+  transition: transform 1.5s;
+  transition-delay: 0.3s;
+  transition-timing-function: ease-in-out;
+}
+.section.anim > .content > .inner > div > .left > div:first-child > h3 {
+  animation: fade-in 1s ease-out forwards;
+  animation-duration: 0.5s;
+}
+@keyframes fade-in {
+  from {
+    transform: translateY(100%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+.section.anim > .content > .inner > div > .left > div:last-child > div > p {
+  animation-duration: 1s;
+}
+.section.anim > .content > .inner > div > .left > div:last-child > div:first-child > p {
+  animation: fade-in 1s ease-out forwards;
+  animation-delay: 0.2s;
+}
+@keyframes fade-in {
+  from {
+    transform: translateY(100%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+.section.anim > .content > .inner > div > .left > div:last-child > div:last-child > p {
+  animation: fade-in 1s ease-out forwards;
+  animation-delay: 0.5s;
+}
+@keyframes fade-in {
+  from {
+    transform: translateY(100%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+.section.anim > .content > .inner > div > .right > div > div > div {
+  animation: fade-in2 1s ease-out forwards;
+  animation-duration: 0.5s;
+}
+@keyframes fade-in2 {
+  from {
+    transform: translateY(5%);
+    visibility: hidden;
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    visibility: visible;
+    opacity: 1;
+  }
+}
+.section.anim > .content > .inner > div > .right > div > div:first-child > div:last-child {
+  animation-delay: 0.1s;
+}
+.section.anim > .content > .inner > div > .right > div > div:last-child > div:first-child {
+  animation-delay: 0.2s;
+}
+.section.anim > .content > .inner > div > .right > div > div:last-child > div:last-child {
+  animation-delay: 0.3s;
 }
 
 @media (min-width: 1025px) {

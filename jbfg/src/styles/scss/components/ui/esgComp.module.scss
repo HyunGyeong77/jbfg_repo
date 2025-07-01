@@ -1,5 +1,6 @@
 @use '../../variables' as *;
 @use '../../mixins' as *;
+@use '../../animations' as *;
 
 .esgComp {
     display:flex;
@@ -34,6 +35,15 @@
                 padding:0.3rem 0.4rem 0.4rem 0.9rem;
                 border-radius:30px;
                 background:rgba(255, 255, 255, 0.16);
+                transition: background-color 0.2s;
+
+                &:hover {
+                    background:$white;
+                    
+                    & > span {
+                        color:$cobalt;
+                    }
+                }
 
                 & > span {
                     font-size:0.9rem;
@@ -67,6 +77,11 @@
             height:2.4rem;
             background:rgba(255, 255, 255, 0.16);
             border-radius:50%;
+            transition: background-color 0.3s;
+
+            &:hover {
+                background:$white;
+            }
 
             & > img {
                 scale:1;

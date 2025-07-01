@@ -2,6 +2,7 @@
 @use '../../mixins' as *;
 @use '../../media' as *;
 @use '../../fonts' as *;
+@use '../../animations' as *;
 
 .section {
     position:relative;
@@ -52,27 +53,40 @@
                 gap:1rem;
                 padding-top:2.5rem;
 
-                & > h2 {
-                    font-family: 'TTTtangsbudaejjigaeB';
-                    font-size:2rem;
-                    letter-spacing:-2px;
+                & > div:first-child,
+                & > div:last-child > div {
+                    overflow:hidden;
+                }
 
-                    &::before {
-                        content:"";
-                        display:inline-block;
-                        width:1.4rem;
-                        height:1.4rem;
-                        border-radius:50%;
-                        background:$cobalt;
-                        margin-right:1rem;
-                        transform:translateY(5px);
+                & > div:first-child {
+                    & > h2 {
+                        font-family: 'TTTtangsbudaejjigaeB';
+                        font-size:2rem;
+                        letter-spacing:-2px;
+                        width:max-content;
+                        transform:translateY(100%);
+    
+                        &::before {
+                            content:"";
+                            display:inline-block;
+                            width:1.4rem;
+                            height:1.4rem;
+                            border-radius:50%;
+                            background:$cobalt;
+                            margin-right:1rem;
+                            transform:translateY(5px);
+                        }
                     }
                 }
 
-                & > p {
-                    font-size:3.6rem;
-                    font-weight:900;
-                    line-height:1.4;
+                & > div:last-child {
+                    & > div > p {
+                        font-size:3.6rem;
+                        font-weight:900;
+                        line-height:1.4;
+                        width:max-content;
+                        transform:translateY(100%);
+                    }
                 }
             }
 
@@ -85,15 +99,72 @@
                     margin-left:auto;
                     gap:0.8rem;
 
+                    & > div {
+                        display:grid;
+                        gap:0.8rem;
+                    }
+
+                    & > div > div {
+                        opacity:0;
+                        visibility:hidden;
+                    }
+
                     & > div:first-child {
                         display:flex;
                         flex-direction:column;
                         justify-content:center;
                     }
+                }
+            }
+        }
+    }
+}
 
-                    & > div {
-                        display:grid;
-                        gap:0.8rem;
+.section.anim {
+    & > .content > .inner {
+
+        & > .left {
+            & > div:first-child > h2,
+            & > div:last-child > div > p {
+                @include fade-in(100%);
+            }
+
+            & > div:first-child > h2 {
+                animation-duration:0.4s;
+            }
+
+            & > div:last-child {
+                & > div > p {
+                    animation-duration:0.7s;
+                    animation-timing-function: ease-in-out;
+                }
+    
+                & > div:last-child > p {
+                    animation-delay:0.2s;
+                }
+            }
+        }
+
+        & > .right {
+            & > div {
+                & > div > div {
+                    @include fade-in2(10%);
+                    animation-duration:0.8s;
+                }
+
+                & > div:first-child {
+                    & > div:last-child {
+                        animation-delay: 0.1s;
+                    }
+                }
+
+                & > div:last-child {
+                    & > div:first-child {
+                        animation-delay: 0.2s;
+                    }
+
+                    & > div:last-child {
+                        animation-delay: 0.3s;
                     }
                 }
             }

@@ -1,6 +1,6 @@
 export const text = {
     title:"NEWS",
-    content:"JB금융그룹의 소식을 전달합니다",
+    content:["JB금융그룹의 소식을", "전달합니다"],
     tidings: {
         first: {
             content:"JB금융그룹, 2025년 1분기 당기순이익 1,628억원 시현",

@@ -28,9 +28,20 @@
   font-weight: 900;
   font-style: normal;
 }
+@keyframes progressBar {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+.section {
+  overflow: hidden;
+}
 .section > img {
   position: fixed;
-  bottom: 0;
+  top: 0;
   z-index: -1;
   width: 100vw;
   height: 100vh;
@@ -52,11 +63,17 @@
   gap: 1rem;
   color: white;
 }
-.section > .content > .inner > .left > h2 {
+.section > .content > .inner > .left > div:first-child, .section > .content > .inner > .left > div:last-child > div {
+  overflow: hidden;
+}
+.section > .content > .inner > .left > div:first-child > h2 {
   font-family: "SBAggroB";
   font-size: 1.9rem;
+  width: -moz-max-content;
+  width: max-content;
+  transform: translateY(100%);
 }
-.section > .content > .inner > .left > h2::before {
+.section > .content > .inner > .left > div:first-child > h2::before {
   content: "";
   display: inline-block;
   width: 1.5rem;
@@ -66,11 +83,14 @@
   transform: translateY(6px);
   margin-right: 0.7rem;
 }
-.section > .content > .inner > .left > p {
+.section > .content > .inner > .left > div:last-child > div > p {
   font-size: 3.6rem;
   font-weight: bold;
   line-height: 1.5;
   word-break: keep-all;
+  width: -moz-max-content;
+  width: max-content;
+  transform: translateY(100%);
 }
 .section > .content > .inner > .right {
   display: grid;
@@ -83,14 +103,24 @@
   border-radius: clamp(2rem, 4.2vw, 2.4rem);
   padding: 2.2rem 1.7rem;
   background: white;
+  opacity: 0;
+}
+.section > .content > .inner > .right > a:hover > div:last-child {
+  background: #0A31A8;
 }
 .section > .content > .inner > .right > a > div:first-child {
   display: flex;
   flex-direction: column;
   gap: 0.8rem;
 }
+.section > .content > .inner > .right > a > div:first-child > h2, .section > .content > .inner > .right > a > div:first-child > p {
+  opacity: 0;
+}
 .section > .content > .inner > .right > a > div:first-child > h2 {
   font-size: 2rem;
+}
+.section > .content > .inner > .right > a > div:first-child > p {
+  font-size: 1rem;
 }
 .section > .content > .inner > .right > a > div:last-child {
   display: flex;
@@ -101,8 +131,90 @@
   border-radius: 50%;
   width: 3rem;
   height: 3rem;
+  transition: background-color 0.2s;
 }
 .section > .content > .inner > .right > a > div:last-child > img {
-  width: 3.5rem;
-  height: 3.5rem;
+  width: 1.2rem;
+  height: 1.2rem;
+}
+
+.section.anim > .content > .inner > .left > div > h2, .section.anim > .content > .inner > .left > div > div > p {
+  animation: fade-in 1s ease-out forwards;
+}
+@keyframes fade-in {
+  from {
+    transform: translateY(100%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+.section.anim > .content > .inner > .left > div > h2 {
+  animation-duration: 0.4s;
+}
+.section.anim > .content > .inner > .left > div > div > p {
+  animation-duration: 1s;
+  animation-timing-function: ease-in-out;
+}
+.section.anim > .content > .inner > .left > div > div:last-child > p {
+  animation-delay: 0.2s;
+}
+.section.anim > .content > .inner > .right > a {
+  animation: fade-in2 1s ease-out forwards;
+  animation-duration: 0.4s;
+}
+@keyframes fade-in2 {
+  from {
+    transform: translateY(10%);
+    visibility: hidden;
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    visibility: visible;
+    opacity: 1;
+  }
+}
+.section.anim > .content > .inner > .right > a:first-child > div:first-child > h2, .section.anim > .content > .inner > .right > a:first-child > div:first-child > p {
+  animation: fade-in2 1s ease-out forwards;
+  animation-delay: 0.2s;
+  animation-duration: 0.8s;
+}
+@keyframes fade-in2 {
+  from {
+    transform: translateY(30px);
+    visibility: hidden;
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    visibility: visible;
+    opacity: 1;
+  }
+}
+.section.anim > .content > .inner > .right > a:first-child > div:first-child > p {
+  animation-delay: 0.4s;
+}
+.section.anim > .content > .inner > .right > a:last-child {
+  animation-delay: 0.3s;
+}
+.section.anim > .content > .inner > .right > a:last-child > div:first-child > h2, .section.anim > .content > .inner > .right > a:last-child > div:first-child > p {
+  animation: fade-in2 1s ease-out forwards;
+  animation-delay: 0.5s;
+  animation-duration: 0.8s;
+}
+@keyframes fade-in2 {
+  from {
+    transform: translateY(30px);
+    visibility: hidden;
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    visibility: visible;
+    opacity: 1;
+  }
+}
+.section.anim > .content > .inner > .right > a:last-child > div:first-child > p {
+  animation-delay: 0.7s;
 }

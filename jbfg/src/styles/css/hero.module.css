@@ -8,17 +8,17 @@
 }
 .bg {
   position: absolute;
-  top: 0;
+  bottom: 0;
   left: 0;
-  width: 100vw;
-  height: 100vh;
+  width: 100%;
+  height: 100svh;
   background: #0D2D77;
 }
 
 .section {
   position: relative;
   overflow: hidden;
-  height: 100vh;
+  height: 100lvh;
   z-index: 2;
 }
 .section > .video {
@@ -169,25 +169,12 @@
   gap: 0.8rem;
 }
 
-@media (min-width: 1910px) {
-  .bg,
-  .section {
-    height: 103vh;
-  }
-  .section > .video {
-    height: 103vh;
-  }
-}
 @media (min-width: 1025px) {
   .section > .content > .inner > div > .right > div {
     max-width: 38.5rem;
   }
 }
 @media (max-width: 1024px) {
-  .bg,
-  .section {
-    height: 1307.45px;
-  }
   .section {
     overflow: hidden;
   }
@@ -236,10 +223,6 @@
   }
 }
 @media (max-width: 680px) {
-  .bg,
-  .section {
-    height: 1814.91px;
-  }
   .section > .content .inner > div {
     padding-block: 5rem;
   }

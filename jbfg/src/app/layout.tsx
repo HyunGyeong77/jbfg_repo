@@ -1,14 +1,24 @@
 'use client';
 
 import "styles/globals.css";
-import {Header} from 'components/layout/Header';
+import Header from 'components/layout/Header';
+import Footer from 'components/layout/Footer';
 import {HeaderModal} from 'components/common/modal/HeaderModal'; 
-import {useEffect} from 'react';
+import {useState, useEffect} from 'react';
 import {scrollAtom} from 'lib/store/scroll';
 import {useAtomValue} from 'jotai';
 
 export default function RootLayout({children}:Readonly<{children: React.ReactNode;}>) {
   const scrollValue = useAtomValue(scrollAtom);
+  const [showFlash, setShowFlash] = useState(true);
+
+  useEffect(() => {
+    const flashTimer = setTimeout(() => {
+      setShowFlash(false);
+    }, 400);
+
+    return (() => clearTimeout(flashTimer));
+  }, []);
 
   useEffect(() => {
     if(scrollValue) return;
@@ -64,9 +74,11 @@ export default function RootLayout({children}:Readonly<{children: React.ReactNod
   return (
     <html lang="en">
       <body>
+        {showFlash && <div className="flash-overlay" />}
         <HeaderModal />
         <Header />
         {children}
+        <Footer />
       </body>
     </html>
   );

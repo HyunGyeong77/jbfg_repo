@@ -1,3 +1,11 @@
+@keyframes progressBar {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
 .section {
   padding-inline: 3.7rem;
   background: #FCFCFC;
@@ -19,11 +27,17 @@
   color: #333333;
   font-weight: bold;
 }
-.section > div > div > .left > h2 {
+.section > div > div > .left > div:first-child, .section > div > div > .left > div:last-child > div {
+  overflow: hidden;
+}
+.section > div > div > .left > div:first-child > h2 {
   font-family: "SBAggroB";
   font-size: 1.9rem;
+  width: -moz-max-content;
+  width: max-content;
+  transform: translateY(100%);
 }
-.section > div > div > .left > h2::before {
+.section > div > div > .left > div:first-child > h2::before {
   content: "";
   display: inline-block;
   width: 1.4rem;
@@ -33,10 +47,13 @@
   margin-right: 0.8rem;
   transform: translateY(6px);
 }
-.section > div > div > .left > p {
+.section > div > div > .left > div:last-child > div > p {
   word-break: keep-all;
   font-size: 3.6rem;
   line-height: 1.4;
+  width: -moz-max-content;
+  width: max-content;
+  transform: translateY(100%);
 }
 .section > div > div > .right {
   display: grid;
@@ -46,6 +63,9 @@
 .section > div > div > .right > div {
   display: grid;
   gap: 4.5rem;
+}
+.section > div > div > .right > div > div {
+  opacity: 0;
 }
 .section > div > div > .right > div:first-child > div:last-child {
   align-self: flex-end;
@@ -61,4 +81,51 @@
 .section > div > div > .right > div:last-child > div:last-child > a > div, .section > div > div > .right > div:last-child > div:last-child > a > div > img {
   width: 25rem;
   height: 18.1rem;
+}
+
+.section.anim > div > div > .left > div > h2, .section.anim > div > div > .left > div > div > p {
+  animation: fade-in 1s ease-out forwards;
+}
+@keyframes fade-in {
+  from {
+    transform: translateY(100%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+.section.anim > div > div > .left > div > h2 {
+  animation-duration: 0.4s;
+}
+.section.anim > div > div > .left > div > div > p {
+  animation-duration: 1s;
+  animation-timing-function: ease-in-out;
+}
+.section.anim > div > div > .left > div > div:last-child > p {
+  animation-delay: 0.2s;
+}
+.section.anim > div > div > .right > div > div {
+  animation: fade-in2 1s ease-out forwards;
+  animation-duration: 0.7s;
+}
+@keyframes fade-in2 {
+  from {
+    transform: translateY(10%);
+    visibility: hidden;
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    visibility: visible;
+    opacity: 1;
+  }
+}
+.section.anim > div > div > .right > div:first-child > div:last-child {
+  animation-delay: 0.2s;
+}
+.section.anim > div > div > .right > div:last-child > div:first-child {
+  animation-delay: 0.1s;
+}
+.section.anim > div > div > .right > div:last-child > div:last-child {
+  animation-delay: 0.3s;
 }

@@ -2,11 +2,14 @@
 @use '../../levels' as *;
 @use '../../fonts' as *;
 @use '../../mixins' as *;
+@use '../../animations' as *;
 
 .section {
+    overflow:hidden;
+
     & > img {
         position:fixed;
-        bottom:0;
+        top:0;
         z-index:$z-index-back;
         width:100vw;
         height:100vh;
@@ -29,27 +32,42 @@
                 gap:1rem;
                 color:$white;
 
-                & > h2 {
-                    font-family: 'SBAggroB';
-                    font-size:1.9rem;
+                & > div:first-child,
+                & > div:last-child > div {
+                    overflow:hidden;
+                }
 
-                    &::before {
-                        content:"";
-                        display:inline-block;
-                        width:1.5rem;
-                        height:1.5rem;
-                        border-radius:50%;
-                        background:$cobalt;
-                        transform:translateY(6px);
-                        margin-right:0.7rem;
+                & > div:first-child {
+                    & > h2 {
+                        font-family: 'SBAggroB';
+                        font-size:1.9rem;
+                        width:max-content;
+                        transform:translateY(100%);
+    
+                        &::before {
+                            content:"";
+                            display:inline-block;
+                            width:1.5rem;
+                            height:1.5rem;
+                            border-radius:50%;
+                            background:$cobalt;
+                            transform:translateY(6px);
+                            margin-right:0.7rem;
+                        }
                     }
                 }
 
-                & > p {
-                    font-size:3.6rem;
-                    font-weight:bold;
-                    line-height:1.5;
-                    word-break:keep-all;
+                & > div:last-child {
+                    & > div {
+                        & > p {
+                            font-size:3.6rem;
+                            font-weight:bold;
+                            line-height:1.5;
+                            word-break:keep-all;
+                            width:max-content;
+                            transform:translateY(100%);
+                        }
+                    }
                 }
             }
 
@@ -64,14 +82,28 @@
                     border-radius:clamp(2rem, 4.2vw, 2.4rem);
                     padding:2.2rem 1.7rem;
                     background:$white;
+                    opacity:0;
+
+                    &:hover > div:last-child {
+                        background:$cobalt;
+                    }
 
                     & > div:first-child {
                         display:flex;
                         flex-direction: column;
                         gap:0.8rem;
 
+                        & > h2,
+                        & > p {
+                            opacity:0;
+                        }
+
                         & > h2 {
                             font-size:2rem;
+                        }
+
+                        & > p {
+                            font-size:1rem;
                         }
                     }
                     
@@ -82,10 +114,80 @@
                         border-radius:50%;
                         width:3rem;
                         height:3rem;
+                        transition: background-color 0.2s;
 
                         & > img {
-                            width:3.5rem;
-                            height:3.5rem;
+                            width:1.2rem;
+                            height:1.2rem;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+.section.anim {
+    & > .content > .inner {
+
+        & > .left {
+
+            & > div {
+                & > h2,
+                & > div > p {
+                    @include fade-in(100%);
+                }
+
+                & > h2 {
+                    animation-duration:0.4s;
+                }
+
+                & > div > p {
+                    animation-duration:1s;
+                    animation-timing-function: ease-in-out;
+                }
+    
+                & > div:last-child > p {
+                    animation-delay:0.2s;
+                }
+            }
+
+        }
+
+        & > .right {
+
+            & > a {
+                @include fade-in2(10%);
+                animation-duration:0.4s;
+
+                &:first-child {
+                    & > div:first-child {
+                        & > h2,
+                        & > p {
+                            @include fade-in2(30px);
+                            animation-delay:0.2s;
+                            animation-duration:0.8s;
+                        }
+    
+                        & > p {
+                            animation-delay:0.4s;
+                        }
+                    }
+                }
+
+                &:last-child {
+                    animation-delay:0.3s;
+
+                    & > div:first-child {
+                        & > h2,
+                        & > p {
+                            @include fade-in2(30px);
+                            animation-delay:0.5s;
+                            animation-duration:0.8s;
+                        }
+    
+                        & > p {
+                            animation-delay:0.7s;
                         }
                     }
                 }

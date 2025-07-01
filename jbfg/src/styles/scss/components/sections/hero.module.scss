@@ -6,17 +6,17 @@
 
 .bg {
     position:absolute;
-    top:0;
+    bottom:0;
     left:0;
-    width:100vw;
-    height:100vh;
+    width:100%;
+    height:100svh;
     background:$navy;
 }
 
 .section {
     position:relative;
     overflow:hidden;
-    height:100vh;
+    height:100lvh;
     z-index:2;
 
     & > .video {
@@ -160,16 +160,16 @@
 }
 
 @media (min-width: 1910px) {
-    .bg,
-    .section {
-        height:103vh;
-    }
+    // .bg,
+    // .section {
+    //     height:103vh;
+    // }
 
-    .section {
-        & > .video {
-            height:103vh;
-        }
-    }
+    // .section {
+    //     & > .video {
+    //         height:103vh;
+    //     }
+    // }
 }
 
 @include media-min-lg {
@@ -179,10 +179,10 @@
 }
 
 @include media-lg {
-    .bg,
-    .section {
-        height:1307.45px;
-    }
+    // .bg,
+    // .section {
+    //     height:1307.45px;
+    // }
 
     .section {
         overflow:hidden;
@@ -249,10 +249,10 @@
 }
 
 @media(max-width: 680px) {
-    .bg,
-    .section {
-        height:1814.91px;
-    }
+    // .bg,
+    // .section {
+    //     height:1814.91px;
+    // }
 
     .section {
         & > .content  .inner {

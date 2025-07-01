@@ -1,0 +1,161 @@
+@use '../../variables' as *;
+@use '../../mixins' as *;
+
+.footer {
+    @include flexSort(space-between, null);
+    background: $cobalt;
+    padding-inline:$layout-padding;
+    padding-block:2.5rem;
+
+    & > .left {
+        display:flex;
+        flex-direction:column;
+        gap:5rem;
+        color:$white;
+
+        & > a {
+            display:flex;
+            width:max-content;
+            
+            & > img {
+                width:12rem;
+                height:2rem;
+            }
+        }
+
+        & > div {
+            display:flex;
+            flex-direction:column;
+            gap:0.8rem;
+
+            & > div:first-child {
+                @include flexSort(null, center);
+                gap:1rem;
+
+                & > span:first-child {
+                    font-size:0.8rem;
+                }
+
+                & > span:last-child {
+                    font-size:0.85rem;
+                    line-height:1;
+                }
+            }
+
+            & > div:last-child {
+                @include flexSort(null, center);
+                
+                & > .siteIcon {
+                    display:flex;
+                    gap:1rem;
+
+                    & > a {
+                        @include flexSort(center, center);
+                        border-radius:50%;
+                        background:rgba(255, 255, 255, 0.1);
+
+                        &:hover {
+                            background:$white;
+                        }
+
+                        & > img {
+                            width:2rem;
+                            height:2rem;
+                        }
+                    }
+                }
+
+                & > .menu {
+                    display:flex;
+
+                    & > div:last-child::before {
+                        display:none;
+                    }
+
+                    & > div:not(:first-child) > a {
+                        opacity:0.7;
+                    }
+
+                    & > div {
+                        position:relative;
+                        padding-inline:1.1rem;
+                        
+                        &::before {
+                            content:"";
+                            position:absolute;
+                            top:25%;
+                            right:0;
+                            display:block;
+                            width:1px;
+                            height:0.8rem;
+                            background:rgba(255, 255, 255, 0.2);
+                        }
+
+                        & > a {
+                            font-size:0.85rem;
+                            line-height:2;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    & > .right {
+        display:flex;
+        flex-direction:column;
+        gap:5.3rem;
+        color:$white;
+
+        & > a:first-child {
+            padding:1rem 9.5rem 1rem 0;
+            border-radius:50px;
+            background:rgba(255, 255, 255, 0.1);
+            transition:background-color 0.1s;
+
+            &:hover {
+                color:$black;
+                background:$white;
+
+                & > p::before {
+                    background:$cobalt;
+                }
+            }
+
+            & > p {
+                font-size:0.9rem;
+                text-indent:1.5rem;
+
+                &::before {
+                    content:"";
+                    display:inline-block;
+                    width:0.5rem;
+                    height:0.5rem;
+                    border-radius:50%;
+                    background:$white;
+                    margin-right:0.5rem;
+                    transform:translateY(-2px);
+                }
+            }
+        }
+
+        & > a:last-child {
+            @include flexSort(null, center);
+            gap:0.8rem;
+            margin-left:auto;
+            font-size:0.9rem;
+
+            &:hover > img {
+                background:$white;
+            }
+
+            & > img {
+                width:2.3rem;
+                height:2.3rem;
+                background:rgba(255, 255, 255, 0.1);
+                border-radius:50%;
+                transition:background-color 0.1s;
+            }
+        }
+    }
+}

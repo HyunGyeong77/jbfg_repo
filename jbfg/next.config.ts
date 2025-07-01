@@ -6,12 +6,6 @@ const nextConfig: NextConfig = {
   images: {
     loader: "custom",
     loaderFile: "./src/lib/utils/localImageLoader.ts",
-    remotePatterns: [
-      {
-        protocol: "http",
-        hostname: "localhost"
-      }
-    ]
   },
 };
 

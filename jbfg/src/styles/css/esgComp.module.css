@@ -1,3 +1,11 @@
+@keyframes progressBar {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
 .esgComp {
   display: flex;
   flex-direction: column;
@@ -28,6 +36,13 @@
   padding: 0.3rem 0.4rem 0.4rem 0.9rem;
   border-radius: 30px;
   background: rgba(255, 255, 255, 0.16);
+  transition: background-color 0.2s;
+}
+.esgComp > div:first-child > div > a:hover {
+  background: white;
+}
+.esgComp > div:first-child > div > a:hover > span {
+  color: #0A31A8;
 }
 .esgComp > div:first-child > div > a > span {
   font-size: 0.9rem;
@@ -57,6 +72,10 @@
   height: 2.4rem;
   background: rgba(255, 255, 255, 0.16);
   border-radius: 50%;
+  transition: background-color 0.3s;
+}
+.esgComp > div:last-child > a:hover {
+  background: white;
 }
 .esgComp > div:last-child > a > img {
   scale: 1;
